@@ -14,11 +14,6 @@ import { LoginComponent } from './authentication/login/login.component';
     AppComponent
   ],
   imports: [
-    RouterModule.forRoot([
-      { path: 'login', component: LoginComponent }
-    ]),
-    DashboardModule,
-    AuthenticationModule,
     BrowserModule,
     AppRoutingModule
   ],
