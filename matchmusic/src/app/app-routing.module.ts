@@ -5,6 +5,7 @@ import { RegisterComponent } from './authentication/register/register.component'
 import { BandComponent } from './dashboard/band/band.component';
 import { HomeComponent } from './dashboard/home/home.component';
 import { ProfileComponent } from './dashboard/profile/profile.component';
+import { FeedComponent } from './dashboard/feed/feed.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path:'profile',
     component:ProfileComponent
+  },
+  {
+    path:'feed',
+    component: FeedComponent
   }
 ];
 
