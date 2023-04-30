@@ -13,6 +13,6 @@ import { HeaderComponent } from './header/header.component';
   imports: [
     CommonModule
   ],
-  exports:[FooterComponent, HeaderComponent]
+  exports:[HeaderComponent, FooterComponent]
 })
 export class CoreModule { }
