@@ -1,5 +1,5 @@
 <div class="text-center">
-    <form class="col-6" id="form-log" action="./feed.html" method="get">
+    <form class="col-6" id="form-log" (submit)="clickLogin()">
       <h1 class="login__logo">MATCH MUSIC</h1>
       <p>Sign in</p>
       <label class="form-label d-block mt-1 login__input">
@@ -23,7 +23,7 @@
         />
       </label>
       <div id="error" class="error"></div>
-      <button type="submit" class="login__btn">
+      <button type="submit" class="login__btn" routerLink="feed">
         <p class="login__btn-p">log in</p>
       </button>
     </form>
