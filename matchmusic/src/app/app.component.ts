@@ -8,12 +8,13 @@ import { NavigationEnd, Router } from '@angular/router'
 })
 export class AppComponent {
   currentRoute: string;
+  routes: string[] = ["/login", "/register", "/"]
+
   constructor(private router: Router) {
-    this.currentRoute = "Demo";
+    this.currentRoute = "";
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
           this.currentRoute = event.url;
-            console.log(event);
       }
     });
   }

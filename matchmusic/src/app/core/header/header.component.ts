@@ -4,10 +4,12 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
   constructor(private router: Router){}
+
+  ngOnInit(){}
 
   goToSection(section: string){
     this.router.navigate([section])

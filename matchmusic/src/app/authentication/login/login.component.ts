@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   constructor(private router: Router){}
 
-  clickLogin(){
-    this.router.navigate(['feed'])
+  clickSection(section: string){
+    this.router.navigate([section])
   }
 }

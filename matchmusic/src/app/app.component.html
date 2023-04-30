@@ -1,1 +1,3 @@
+<app-header *ngIf="!routes.includes(currentRoute)"></app-header>
 <router-outlet></router-outlet>
+<app-footer *ngIf="!routes.includes(currentRoute)"></app-footer>
