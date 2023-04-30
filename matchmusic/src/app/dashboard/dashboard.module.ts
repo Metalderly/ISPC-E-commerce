@@ -4,19 +4,20 @@ import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { BandComponent } from './band/band.component';
 import { FeedComponent } from './feed/feed.component';
-
-
+import { CoreModule } from '../core/core.module';
+import { HeaderComponent } from '../core/header/header.component';
 
 @NgModule({
   declarations: [
-    HomeComponent,
     ProfileComponent,
     BandComponent,
-    FeedComponent
+    FeedComponent,
+    HomeComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    CoreModule,
   ],
-  exports: [HomeComponent],
+  exports: [],
 })
 export class DashboardModule { }

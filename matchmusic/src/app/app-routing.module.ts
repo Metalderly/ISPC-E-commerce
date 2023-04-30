@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './dashboard/home/home.component';
 import { LoginComponent } from './authentication/login/login.component';
 import { RegisterComponent } from './authentication/register/register.component';
-import { BandComponent } from './dashboard/band/band.component';
-import { HomeComponent } from './dashboard/home/home.component';
-import { ProfileComponent } from './dashboard/profile/profile.component';
 import { FeedComponent } from './dashboard/feed/feed.component';
-
+import { BandComponent } from './dashboard/band/band.component';
+import { ProfileComponent } from './dashboard/profile/profile.component';
 const routes: Routes = [
   {
     path:'',
