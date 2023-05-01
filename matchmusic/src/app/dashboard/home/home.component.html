@@ -6,50 +6,27 @@
         Ingresá, contactate con otros músicos y empezá tu banda
       </h5>
     </div>
-
-    <div class="media-content">
+   <div class="media-content">
       <div class="card-group mt-2 gap-3 container">
         <div class="card text-white bg-dark rounded-4">
-          <img
-            src="https://images.pexels.com/photos/33597/guitar-classical-guitar-acoustic-guitar-electric-guitar.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            class="card-img-top"
-            alt="Guitarrista"
-          />
+          <img [src]="music.image" class="card-img-top" alt="Guitarrista"/>
           <div class="card-body">
-            <h5 class="card-title">Soy músico</h5>
-            <p class="card-text">
-              Armá tu perfil personal como músico para mostrar lo que hacés y
-              encontrar gente con quien tocar.
-            </p>
+            <h5 class="card-title">{{music.title}}</h5>
+            <p class="card-text">{{music.description}}</p>
           </div>
         </div>
         <div class="card text-white bg-dark rounded-4">
-          <img
-            src="https://images.pexels.com/photos/2601192/pexels-photo-2601192.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            class="card-img-top"
-            alt="Banda"
-          />
+          <img [src]="band.image" class="card-img-top" alt="Banda">
           <div class="card-body">
-            <h5 class="card-title">Tengo una banda</h5>
-            <p class="card-text">
-              Creá tu perfil como banda para armar un perfil y contactar con
-              otros músicos, espacios para ir a tocar y para que la gente
-              conozca lo que hacen.
-            </p>
+            <h5 class="card-title">{{band.title}}</h5>
+            <p class="card-text">{{band.description}}</p>
           </div>
         </div>
         <div class="card text-white bg-dark rounded-4">
-          <img
-            src="https://images.pexels.com/photos/6173928/pexels-photo-6173928.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            class="card-img-top"
-            alt="Bar"
-          />
+          <img [src]="bar.image" class="card-img-top" alt="Bar"/>
           <div class="card-body">
-            <h5 class="card-title">Tengo un espacio</h5>
-            <p class="card-text">
-              ¿Tenés un lugar para hacer shows? Ponete en contacto con músicos
-              para programar fechas en vivo.
-            </p>
+            <h5 class="card-title">{{bar.title}}</h5>
+            <p class="card-text">{{bar.description}}</p>
           </div>
         </div>
       </div>

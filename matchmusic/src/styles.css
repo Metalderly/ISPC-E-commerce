@@ -426,7 +426,7 @@
     text-align: center;
     font-size: 12px;
   }
-  
+  /*
   .muro__feed {
     display: flex;
     flex-direction: column;
@@ -481,7 +481,7 @@
     font-weight: 900;
     color: #17cc29;
   }
-  
+  */
   .card-shadow {
     box-shadow: 3px 2px 8px rgba(0, 0, 0, 0.5);
   }
