@@ -1,0 +1,9 @@
+.footer__nuevo {
+  display: flex;
+  justify-content: center;
+  color: white;
+  background-color: #151414;
+  padding: 15px;
+  text-align: center;
+  font-size: 12px;
+}

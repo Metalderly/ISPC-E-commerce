@@ -14,8 +14,7 @@ import { CoreModule } from '../core/core.module';
     HomeComponent,
   ],
   imports: [
-    CommonModule,
-    CoreModule
+    CommonModule
   ],
   exports: [],
 })
