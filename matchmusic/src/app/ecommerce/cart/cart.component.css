@@ -1,0 +1,29 @@
+.counter{
+  position: absolute;
+  bottom: -5px;
+  right: 7px;
+  color: white;
+  background-color: gray;
+  border-radius: 100%;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.products{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: absolute;
+  right: 0;
+  top: 59px;
+  background-color: grey;
+  width: auto;
+}
+
+.product {
+  display: flex;
+  height: auto;
+  padding: 10px;
+}

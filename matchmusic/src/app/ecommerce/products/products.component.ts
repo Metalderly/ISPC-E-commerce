@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Product } from '../models/product.model';
 import { Category } from '../models/category.enum';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-products',
@@ -8,6 +9,7 @@ import { Category } from '../models/category.enum';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent {
+  constructor(private cartService: CartService){}
     products: Product[] = [{
       id:1,
       name:'Entrada Show en Luna Park',
@@ -36,4 +38,8 @@ export class ProductsComponent {
       category:Category.Discos
     }
   ]
+
+  addCart(product: Product){
+    this.cartService.addProduct(product)
+  }
 }
