@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductsComponent } from './products/products.component';
 import { CartComponent } from './cart/cart.component';
@@ -16,6 +16,8 @@ import { ProductdetailsComponent } from './productdetails/productdetails.compone
   ],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: [ProductComponent, ProductsComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class EcommerceModule { }

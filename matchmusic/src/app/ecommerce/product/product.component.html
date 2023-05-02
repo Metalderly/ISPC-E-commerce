@@ -1,1 +1,6 @@
-<p>product works!</p>
+<div class="product">
+  <img [src]="product.image">
+  <p>{{product.category}}</p>
+  <h2>{{product.name}}</h2>
+  <h1>{{product.price | currency}}</h1>
+</div>

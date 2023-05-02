@@ -1,0 +1,10 @@
+.title_products{
+  margin: 30px auto 10px auto;
+  width: 50vw;
+}
+.products{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 50vw;
+  margin: auto;
+}

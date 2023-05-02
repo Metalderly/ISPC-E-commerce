@@ -4,7 +4,9 @@ import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { BandComponent } from './band/band.component';
 import { FeedComponent } from './feed/feed.component';
+import { EcommerceModule } from '../ecommerce/ecommerce.module';
 import { CoreModule } from '../core/core.module';
+
 
 @NgModule({
   declarations: [
@@ -14,8 +16,10 @@ import { CoreModule } from '../core/core.module';
     HomeComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    EcommerceModule,
+    CoreModule
   ],
-  exports: [],
+  exports: [HomeComponent],
 })
 export class DashboardModule { }
