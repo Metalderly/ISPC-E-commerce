@@ -6,6 +6,7 @@ import { RegisterComponent } from './authentication/register/register.component'
 import { FeedComponent } from './dashboard/feed/feed.component';
 import { BandComponent } from './dashboard/band/band.component';
 import { ProfileComponent } from './dashboard/profile/profile.component';
+import { ProductComponent } from './ecommerce/product/product.component';
 const routes: Routes = [
   {
     path:'',
