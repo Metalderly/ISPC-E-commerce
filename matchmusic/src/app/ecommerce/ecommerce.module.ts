@@ -17,7 +17,7 @@ import { ProductdetailsComponent } from './productdetails/productdetails.compone
   imports: [
     CommonModule
   ],
-  exports: [ProductComponent, ProductsComponent],
+  exports: [ProductComponent, ProductsComponent, CartComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class EcommerceModule { }
