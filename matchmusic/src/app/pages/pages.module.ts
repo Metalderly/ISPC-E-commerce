@@ -6,6 +6,8 @@ import { BandComponent } from './band/band.component';
 import { FeedComponent } from './feed/feed.component';
 import { EcommerceModule } from '../ecommerce/ecommerce.module';
 import { CoreModule } from '../core/core.module';
+import { ShopComponent } from './shop/shop.component';
+import { ProductdetailsComponent } from './productdetails/productdetails.component';
 
 
 @NgModule({
@@ -14,6 +16,8 @@ import { CoreModule } from '../core/core.module';
     BandComponent,
     FeedComponent,
     HomeComponent,
+    ShopComponent,
+    ProductdetailsComponent
   ],
   imports: [
     CommonModule,
@@ -22,4 +26,4 @@ import { CoreModule } from '../core/core.module';
   ],
   exports: [HomeComponent],
 })
-export class DashboardModule { }
+export class PagesModule { }

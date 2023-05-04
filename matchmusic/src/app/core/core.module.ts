@@ -13,6 +13,6 @@ import { EcommerceModule } from '../ecommerce/ecommerce.module';
     CommonModule,
     EcommerceModule
   ],
-  exports:[HeaderComponent, FooterComponent]
+  exports:[HeaderComponent, FooterComponent],
 })
 export class CoreModule { }
