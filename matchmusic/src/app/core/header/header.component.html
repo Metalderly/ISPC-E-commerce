@@ -26,10 +26,13 @@
             <a class="nav-link" (click)="goToSection('band')">Mi Banda</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" (click)="goToSection('shop')">Tienda</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" (click)="goToSection('login')">Cerrar Sesion</a>
           </li>
         </ul>
-        <app-cart></app-cart>
+        <app-cart *ngIf="path.includes('shop' || '/shop/product/')"></app-cart>
       </div>
     </div>
   </nav>

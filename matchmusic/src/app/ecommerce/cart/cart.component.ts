@@ -12,14 +12,14 @@ export class CartComponent {
   constructor(private cartService: CartService){
   }
   counter_cart: number|string = ''
-  listProducts: Map<string, number> = new Map
+  listProducts: Map<string, number[]> = new Map
   visibilityCart: boolean = false
 
   ngOnInit(){
     this.cartService.listObservable.subscribe(data => {
-      this.counter_cart = data.size
       this.listProducts = data
     })
+    this.cartService.quantityObservable.subscribe(el => {this.counter_cart=el})
   }
 
   toggleCart(){

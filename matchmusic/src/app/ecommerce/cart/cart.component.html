@@ -6,6 +6,6 @@
 <div class="products" *ngIf="visibilityCart">
   <p *ngIf="listProducts.size==0">No hay productos en la lista</p>
   <div class="product" *ngFor="let product of listProducts.entries()">
-    <p>{{product[0]}} - {{product[1] | currency}}</p>
+    <p>{{product[0]}} x{{product[1][1]}} - {{product[1][0] | currency}}</p>
   </div>
 </div>
