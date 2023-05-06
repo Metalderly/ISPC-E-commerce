@@ -1,6 +1,7 @@
 .product{
-
-  width: 80%;
+  margin: auto;
+  width: 90%;
+  cursor: pointer;
 }
 
 .product img {

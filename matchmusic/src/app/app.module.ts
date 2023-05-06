@@ -5,8 +5,7 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
-import { EcommerceModule } from './ecommerce/ecommerce.module';
-import { DashboardModule } from './dashboard/dashboard.module';
+import { PagesModule } from './pages/pages.module';
 
 @NgModule({
   declarations: [
@@ -15,8 +14,8 @@ import { DashboardModule } from './dashboard/dashboard.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CoreModule,
-    DashboardModule
+    PagesModule,
+    CoreModule
   ],
   exports: [RouterModule],
   providers: [],
