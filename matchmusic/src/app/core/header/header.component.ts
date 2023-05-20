@@ -11,10 +11,13 @@ export class HeaderComponent {
   }
 
   path: string = this.router.url
-
+  menu: boolean = false
   ngOnInit(){}
 
   goToSection(section: string){
     this.router.navigate([section])
+  }
+  toggleMenu(){
+    this.menu = !this.menu
   }
 }

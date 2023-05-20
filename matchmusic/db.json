@@ -1,0 +1,58 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "CD Michael Jackson",
+      "description":"Ultimo disco de Michael Jackson",
+      "price":5000,
+      "image": "https://www.lacortedelreydelpop.com/nuevodisco2010.jpg",
+      "seller": "Michael Jackson",
+      "category": "Discos"
+    },
+    {
+      "id": 2,
+      "name": "Camiseta de Kiss",
+      "description":"Les presentamos nuestra nueva indumentaria de la banda",
+      "price":8450,
+      "image": "https://cdn.shopify.com/s/files/1/0258/6168/5347/files/KISS23-10-KINGSOFLIVE-SS-FR-14inch_1be20876-a644-4de6-b2ab-06b6f2b99c9b_587x.png?v=1684164894",
+      "seller": "Kiss",
+      "category": "Indumentaria"
+    },
+    {
+      "id": 3,
+      "name": "Vinilo Premium",
+      "description":"Vinilo de nuestro ultimo album",
+      "price":30000,
+      "image": "https://cdn.shopify.com/s/files/1/0258/6168/5347/files/HypeSticker_KISS_AliveIII_2LPGatefold_Packshot_premiumEd_Hype_587x.png?v=1684164801",
+      "seller": "Kiss",
+      "category": "Discos"
+    },
+    {
+      "id":4,
+      "name":"Entrada Show en Luna Park",
+      "description":"Estamos vendiendo entradas para nuestro proximo show...",
+      "image":"https://thumbs.dreamstime.com/b/dise%C3%B1o-de-plantilla-entradas-entrada-concetos-musicales-con-forma-instrumento-musical-cuerdas-onda-fluida-abstracta-en-concet-184310983.jpg",
+      "price":1000,
+      "seller":"Mick Jagger",
+      "category":"Entradas"
+    },
+    {
+      "id":5,
+      "name":"Guitarra Acústica",
+      "description":"Guitarra usada marca Yamaha. Buen estado.",
+      "image":"https://images.unsplash.com/photo-1510915361894-db8b60106cb1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Z3VpdGFyJTIwYWNvdXN0aWN8ZW58MHx8MHx8&w=1000&q=80",
+      "price":4374,
+      "seller":"Mick Jagger",
+      "category":"Instrumentos"
+    },
+    {
+      "id":6,
+      "name":"Mi ultimo disco como solista",
+      "description":"Ya está a la venta mi ultimo disco como solista.",
+      "image":"https://c8.alamy.com/compes/2em6f6x/discos-de-vinilo-y-reproductor-de-musica-discoteca-partido-vector-diseno-discos-de-vinilo-o-discos-lp-con-notas-musicales-y-dj-tocadiscos-retro-del-club-de-baile-en-2em6f6x.jpg",
+      "price":556,
+      "seller":"Mick Jagger",
+      "category":"Discos"
+    }
+  ]
+}
