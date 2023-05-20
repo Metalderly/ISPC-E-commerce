@@ -14,7 +14,9 @@ export class ShopComponent {
   listProducts: Product[] = []
 
   ngOnInit(){
-    this.listProducts = this.productsService.listProducts
+    this.productsService.getAllProducts().subscribe(el => {
+      this.listProducts = el
+    })
   }
 
   clickSection(id: number){

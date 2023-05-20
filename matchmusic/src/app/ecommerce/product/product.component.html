@@ -1,6 +1,8 @@
 <div class="product">
   <img [src]="product.image">
-  <p>{{product.category}}</p>
-  <h2>{{product.name}}</h2>
-  <h1>{{product.price | currency}}</h1>
+  <div class="product-info">
+    <p class="seller">{{product.seller}}</p>
+    <h2 class="name">{{product.name}}</h2>
+    <h1 class="price">{{product.price | currency}}</h1>
+  </div>
 </div>
