@@ -36,31 +36,41 @@ class Mitienda (models.Model):
 class Producto (models.Model):
     producto = models.CharField(max_length=100)
     tipo = models.CharField(max_length=100)
-    caracteristicas = models.CharField(max_length=100)
+    caracteristicas = models.TextField(max_length=1000)
     codigo = models.IntegerField()
     precioXu = models.FloatField(max_length=10)
     precioXm = models.FloatField(max_length=10)
 
+    #def __str__(self):
+     #   return "{}".format(self.producto)
+    
+    class Pro:
+        db_table = 'producto'
+        verbose_name = 'Producto'
+        verbose_name_plural = 'Productos'
+
+    def __unicode__ (self):
+        return self.producto
     def __str__(self):
-        return "{}".format(self.producto)
+        return self.producto
 
 class TdaPto (models.Model):
     id_t1 = models.ManyToManyField(Mitienda)
     id_p1 = models.ManyToManyField(Producto)
 
 class Pedido (models.Model):
-    fecha = models.DateField(default=datetime.date)
+    fecha = models.DateField(default=datetime)
     aNombrede = models.CharField(max_length=50)
     nroPedido = models.IntegerField()
     tipoDeEnvio = models.CharField(max_length=50)
     producto = models.CharField(max_length=100)
-    id_t2 = models.ForeignKey(Mitienda, on_delete=models.CASCADE)
+    mitienda = models.ForeignKey(Mitienda, on_delete=models.CASCADE)
 
     def __str__(self):
         return "{}".format (self.nroPedido)
 
 class Venta (models.Model):
-    fecha = models.DateField(default=datetime.datetime)
+    fecha = models.DateField(default=datetime.time)
     cantidadDeVentas = models.IntegerField(default=0)
     vendedor = models.CharField(max_length=50)
     
@@ -72,7 +82,7 @@ class Factura (models.Model):
     fecha = models.DateField(default=datetime.timedelta)
     cuit = models.IntegerField()
     producto = models.CharField(max_length=100)
-    cantidad = models.CharField(max_length=100)
+    cantidad = models.IntegerField(default=0)
     preciosXu = models.FloatField(max_length=10)
     preciosXm = models.FloatField(max_length=10)
     valorTotal =models.FloatField(max_length=12)
