@@ -25,7 +25,9 @@ export class ProductdetailsComponent {
   }
 
   ngOnInit(){
-    this.product = this.productsService.getProductById(this.router.snapshot.params['id'])!!
+    this.productsService.getProductById(this.router.snapshot.params['id']).subscribe(el => {
+      this.product = el
+    })
   }
 
   addCart(product: Product){

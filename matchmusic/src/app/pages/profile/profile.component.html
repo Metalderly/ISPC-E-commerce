@@ -27,75 +27,9 @@
     </button>
   </div>
 </div>
+
 <main class="feed-perfil">
-  <div class="cont__perfil-aside">
-    <div class="bandas-videos-canciones">
-      <section>
-        <h5 class="mis-bandas-t">Mis bandas</h5>
-        <div class="mis-bandas">
-          <div class="card card-shadow" style="width: 15rem">
-            <img
-              class="card-img-top"
-              src="https://brandemia.org/contenido/subidas/2012/07/the-rolling-stones-logo.webp"
-              alt="Card image cap"
-            />
-            <div class="card-body">
-              <h5 class="card-title">Rolling Stones</h5>
-              <a href="./perfilBanda.html" class="btn btn-primary"
-                >Conocenos!</a
-              >
-            </div>
-          </div>
-          <div class="card card-shadow" style="width: 15rem">
-            <img
-              class="card-img-top"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk2s5Dq_wB5thr4qAA2RG1CLqJpf4XWAx7Kw&usqp=CAU"
-              alt="Card image cap"
-            />
-            <div class="card-body">
-              <h5 class="card-title">SuperHeavy</h5>
-              <a href="#" class="btn btn-primary">Conocenos!</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <h5 class="mis-bandas-t">Mis videos</h5>
-        <div class="mis-bandas">
-          <iframe
-            width="315"
-            height="315"
-            src="https://www.youtube.com/embed/hev2qx1y2IU"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
-
-          <iframe
-            width="315"
-            height="315"
-            src="https://www.youtube.com/embed/wUk_Dqiow0A"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
-
-          <iframe
-            width="315"
-            height="315"
-            src="https://www.youtube.com/embed/qAzqSYQ9X9U"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
-        </div>
-      </section>
-    </div>
-
+  <div class="structure_aside">
     <aside class="aside">
       <div class="seccion-izq_perfiles txt-izq_perfiles">
         <h5>Londres, Inglaterra</h5>
@@ -121,8 +55,85 @@
         </p>
       </div>
     </aside>
+    <div class="cont__perfil-aside">
+      <div class="bandas-videos-canciones">
+        <section>
+          <h5 class="mis-bandas-t">Mis bandas</h5>
+          <div class="mis-bandas">
+            <div class="card card-shadow">
+              <img
+                class="card-img-top"
+                src="https://brandemia.org/contenido/subidas/2012/07/the-rolling-stones-logo.webp"
+                alt="Card image cap"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Rolling Stones</h5>
+                <a href="./perfilBanda.html" class="btn btn-primary"
+                  >Conocenos!</a
+                >
+              </div>
+            </div>
+            <div class="card card-shadow">
+              <img
+                class="card-img-top"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk2s5Dq_wB5thr4qAA2RG1CLqJpf4XWAx7Kw&usqp=CAU"
+                alt="Card image cap"
+              />
+              <div class="card-body">
+                <h5 class="card-title">SuperHeavy</h5>
+                <a href="#" class="btn btn-primary">Conocenos!</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h5 class="mis-bandas-t">Mis videos</h5>
+          <div class="mis-bandas">
+            <iframe
+              width="100%"
+              height="315"
+              src="https://www.youtube.com/embed/hev2qx1y2IU"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+
+            <iframe
+              width="100%"
+              height="315"
+              src="https://www.youtube.com/embed/wUk_Dqiow0A"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+
+            <iframe
+              width="100%"
+              height="315"
+              src="https://www.youtube.com/embed/qAzqSYQ9X9U"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </section>
+
+        <section>
+          <h5 class="mis-bandas-t">Mis productos</h5>
+          <div class="mis-bandas">
+            <div class="products" *ngFor="let el of products">
+              <app-product [product]="el" (click)="clickSection(el.id)"></app-product>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
   </div>
-  <app-products></app-products>
+
 </main>
 <app-footer></app-footer>
 

@@ -3,7 +3,6 @@
     padding: 0;
     font-family: "Roboto", sans-serif;
   }
-
   .body-cont {
     display: flex;
     flex-direction: column;
@@ -193,19 +192,21 @@
     justify-content: flex-start;
     align-items: center;
     padding: 20px;
-    width: 100vw;
+    width: auto;
     height: fit-content;
   }
 
   .feed-perfil {
     background-color: #cdcdcd;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+    display: block;
     padding: 20px;
-    width: 100vw;
+    width: 100%;
     height: auto;
+  }
+  .structure_aside {
+    display: flex;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
   }
 
   .nav__profile-info {
@@ -297,9 +298,9 @@
   }
 
   .seccion-izq_perfiles {
-    position: absolute;
-    width: 300px;
-    left: 24px;
+    display: grid;
+    grid-column: 1/2;
+    width: 100%;
     background: #151414;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
@@ -468,7 +469,14 @@
   }
   */
   .card-shadow {
+    width: 100%;
     box-shadow: 3px 2px 8px rgba(0, 0, 0, 0.5);
+  }
+
+  .card-ver-mas {
+    background: none;
+    box-shadow: none;
+    border: 0px;
   }
 
   .btn-primary {
@@ -487,15 +495,15 @@
     height: 5vw;
     min-width: 36px;
     min-height: 36px;
+    margin: auto;
   }
 
   .mis-bandas {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     flex-wrap: wrap;
-    gap: 10px;
-    width: 50vw;
+    width: 100%;
+    grid-gap: 20px;
   }
 
   .mi-lugar {
@@ -513,8 +521,10 @@
   }
 
   .cont__perfil-aside {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-column: 2/6;
+    width: 100%;
+    padding: 0 30px;
   }
 
   .bandas-videos-canciones {
@@ -532,12 +542,6 @@
     flex-wrap: wrap;
     flex: 2;
   }
-
-
-  .aside {
-    flex: 1;
-  }
-
   .btn-audio {
     width: 40px;
     height: 40px;
@@ -606,8 +610,26 @@
   }
 
   @media screen and (max-width: 1300px) {
+    .structure_aside {
+      display: flex;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .cont__perfil-aside {
+      display: grid;
+      grid-column: 2/5;
+      width: 100%;
+      padding: 0 30px;
+    }
     .seccion-izq_perfiles {
-      width: 220px;
+      display: grid;
+      grid-column: 1/2;
+      width: 100%;
+      background: #151414;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+    .mis-bandas {
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 
@@ -625,33 +647,28 @@
       width: 90vw;
     }
 
-    .seccion-izq_perfiles {
-      width: 90vw;
+    .structure_aside {
+      display: block;
+      width: 90%;
       margin: auto;
     }
-
-    .bandas-videos-canciones {
-      margin-top: 400px;
-      margin-left: 10px;
-      flex-direction: row;
+    .cont__perfil-aside{
+      margin-top: 25px;
+      padding: 0px;
     }
-
-    .lugar-videos {
-      margin-top: 400px;
-      margin-left: 10px;
-      flex-direction: row;
+    .seccion-discografia .mis-bandas{
+      grid-template-columns: repeat(4, 1fr);
     }
-
-    .mis-bandas {
-      width: 90vw;
+    .mis-bandas{
+      grid-template-columns: repeat(2, 1fr);
     }
-
-    .mi-lugar {
-      width: 90vw;
+    .card {
+      width: 100%;
+      grid-gap: 0;
     }
-
-    .canciones-titulo {
-      margin-top: 80px;
+    .mis-bandas iframe {
+      width: 100%;
+      height: 315px;
     }
   }
 
@@ -716,17 +733,4 @@
     .muro__feed {
       padding: 20px 10px;
     }
-
-    .bandas-videos-canciones {
-      margin-top: 480px;
-      margin-left: 10px;
-      flex-direction: column;
-    }
-
-    .lugar-videos {
-      margin-top: 480px;
-      margin-left: 10px;
-      flex-direction: column;
-    }
-
   }
