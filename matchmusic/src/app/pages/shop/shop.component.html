@@ -1,0 +1,30 @@
+<app-header></app-header>
+
+<div class="component">
+  <h1 class="title_products">TIENDA</h1>
+
+  <input type="text" placeholder="Busque un producto">
+  <div class="filtrar">
+    <select>
+      <option value="">Filtrar por categoria</option>
+      <option value="Instrumentos">Instrumentos</option>
+      <option value="Discos">Discos</option>
+      <option value="Indumentaria">Indumentaria</option>
+      <option value="Entradas">Entradas</option>
+      <option value="Accesorios">Accesorios</option>
+    </select>
+    <select>
+      <option value="ordenar">Ordenar resultados</option>
+      <option value="precioDescendente">Precio de mayor a menor</option>
+      <option value="precioAscendente">Precio de menor a mayor</option>
+    </select>
+  </div>
+
+  <div class="products">
+      <div *ngFor="let product of listProducts">
+        <app-product [product]="product" (click)="clickSection(product.id)"></app-product>
+      </div>
+  </div>
+</div>
+<app-footer></app-footer>
+

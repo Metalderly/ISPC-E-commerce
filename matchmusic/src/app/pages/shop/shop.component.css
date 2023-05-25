@@ -1,0 +1,24 @@
+.component{
+  width: 95%;
+  margin: auto;
+}
+.title_products{
+  width: 100%;
+  margin: 30px auto 0px auto;
+}
+
+input{
+  display: flex;
+  width: 100%;
+  margin: auto;
+  border: 2px solid grey;
+  padding: 15px;
+}
+
+.products{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+  margin: 20px auto;
+  grid-gap: 40px;
+}

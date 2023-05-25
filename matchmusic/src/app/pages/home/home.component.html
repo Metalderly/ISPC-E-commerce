@@ -1,0 +1,42 @@
+<section class="index__container">
+    <h1 class="login__logo title">MATCH MUSIC</h1>
+
+    <div class="text-white">
+      <h5 class="mb-3">
+        Ingresá, contactate con otros músicos y empezá tu banda
+      </h5>
+    </div>
+   <div class="media-content">
+      <div class="card-group mt-2 gap-3 container">
+        <div class="card text-white bg-dark rounded-4">
+          <img [src]="music.image" class="card-img-top" alt="Guitarrista"/>
+          <div class="card-body">
+            <h5 class="card-title">{{music.title}}</h5>
+            <p class="card-text">{{music.description}}</p>
+          </div>
+        </div>
+        <div class="card text-white bg-dark rounded-4">
+          <img [src]="band.image" class="card-img-top" alt="Banda">
+          <div class="card-body">
+            <h5 class="card-title">{{band.title}}</h5>
+            <p class="card-text">{{band.description}}</p>
+          </div>
+        </div>
+        <div class="card text-white bg-dark rounded-4">
+          <img [src]="bar.image" class="card-img-top" alt="Bar"/>
+          <div class="card-body">
+            <h5 class="card-title">{{bar.title}}</h5>
+            <p class="card-text">{{bar.description}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-center align-items-center">
+      <div class="text-white p-4">
+        <!--LOGIN ANGULAR-->
+        <a class="login__btn" role="button" (click)="goToLogin()"
+          ><p class="login__btn-p">iniciar sesion</p></a>
+      </div>
+    </div>
+  </section>

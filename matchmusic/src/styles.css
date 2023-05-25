@@ -3,13 +3,12 @@
     padding: 0;
     font-family: "Roboto", sans-serif;
   }
-  
   .body-cont {
     display: flex;
     flex-direction: column;
     width: 100vw;
   }
-  
+
   main {
     background-color: #151414;
     display: flex;
@@ -19,14 +18,8 @@
     align-items: center;
     height: 100vh;
   }
-  
-  .navbar-brand {
-    color: #17cc29 !important;
-    font-weight: bold;
-    font-size: 22px;
-    margin-left: 16px;
-  }
-  
+
+
   .index__container {
     background-color: #151414;
     padding: 20px;
@@ -38,7 +31,7 @@
     margin: auto;
     height: 100vh;
   }
-  
+
   form {
     display: flex;
     flex-direction: column;
@@ -46,18 +39,18 @@
     justify-content: space-between;
     gap: 20px;
   }
-  
+
   form > p {
     color: #17cc29;
     font-size: 24px;
     font-weight: 500;
     text-transform: uppercase;
   }
-  
+
   .login__logo {
     color: #ffffff;
   }
-  
+
   .login__btn-p {
     margin: auto;
     font-size: 18px;
@@ -65,7 +58,7 @@
     text-transform: uppercase;
     color: #151414;
   }
-  
+
   .login__btn {
     display: flex;
     flex-direction: row;
@@ -87,10 +80,10 @@
     cursor: pointer;
     position: relative;
     z-index: 0;
-  
+
     text-decoration: none;
   }
-  
+
   .login__btn:before {
     content: "";
     background: linear-gradient(45deg, #17cc29, #17cc7b, #17cca8, #17cc7b);
@@ -107,19 +100,19 @@
     transition: opacity 0.3s ease-in-out;
     border-radius: 10px;
   }
-  
+
   .login__btn:active {
     color: #000;
   }
-  
+
   .login__btn:active:after {
     background: transparent;
   }
-  
+
   .login__btn:hover:before {
     opacity: 1;
   }
-  
+
   .login__btn:after {
     z-index: -1;
     content: "";
@@ -130,30 +123,30 @@
     top: 0;
     border-radius: 10px;
   }
-  
+
   .title {
     color: rgb(23, 204, 41);
     font-weight: 900;
   }
-  
+
   @keyframes glowing {
     0% {
       background-position: 0 0;
     }
-  
+
     50% {
       background-position: 400% 0;
     }
-  
+
     100% {
       background-position: 0 0;
     }
   }
-  
+
   .login__input {
     width: 40vh;
   }
-  
+
   .login__aclaracion {
     display: flex;
     flex-direction: column;
@@ -163,19 +156,19 @@
     color: #ffffff;
     gap: 10px;
   }
-  
+
   .login__a {
     text-decoration: none;
     color: #ffffff;
     transition: transform 450ms;
   }
-  
+
   .login__a:hover {
     text-decoration: none;
     color: #17cc29;
     transform: scale(1.08);
   }
-  
+
   .nav__feed {
     height: 320px;
     background-color: #151414;
@@ -184,14 +177,14 @@
     align-items: center;
     padding: 44px;
   }
-  
+
   .nav__profile-img {
     border-radius: 50%;
     height: 195px;
     width: 195px;
     object-fit: cover;
   }
-  
+
   .feed {
     background-color: #cdcdcd;
     display: flex;
@@ -199,47 +192,49 @@
     justify-content: flex-start;
     align-items: center;
     padding: 20px;
-    width: 100vw;
+    width: auto;
     height: fit-content;
   }
-  
+
   .feed-perfil {
     background-color: #cdcdcd;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+    display: block;
     padding: 20px;
-    width: 100vw;
+    width: 100%;
     height: auto;
   }
-  
+  .structure_aside {
+    display: flex;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+  }
+
   .nav__profile-info {
     display: flex;
     flex-direction: column;
     align-items: left;
     justify-content: space-between;
   }
-  
+
   .nav__profile-nombre {
     color: #17cc29;
     font-size: 48px;
     font-weight: 600;
     margin-bottom: 0px;
   }
-  
+
   .nav__profile-tipo {
     color: #ffffff;
     font-size: 38px;
     font-weight: 400;
   }
-  
+
   .nav__profile-Ciudad {
     color: #ffffff;
     font-size: 25px;
     font-weight: 400;
   }
-  
+
   .nav__profile-btn-seguir {
     width: 150px;
     height: 53px;
@@ -247,17 +242,17 @@
     border: 2px solid #17cc29;
     color: #17cc29;
   }
-  
+
   .nav__profile-centrar {
     justify-content: center;
   }
-  
+
   .nav__feed-profile {
     display: flex;
     align-items: center;
     gap: 54px;
   }
-  
+
   .nav__feed-btns {
     display: flex;
     flex-direction: column;
@@ -265,7 +260,7 @@
     justify-content: space-around;
     gap: 10px;
   }
-  
+
   .nav__profile-btn-disponible {
     padding: 10px;
     background-color: transparent;
@@ -276,9 +271,9 @@
     justify-content: center;
     border-radius: 50px;
     height: 30px;
-    width: 275px; 
+    width: 275px;
   }
-  
+
   .nav__profile-btn-contact {
     width: 150px;
     height: 53px;
@@ -287,48 +282,48 @@
     color: #151414;
     font-weight: 700;
   }
-  
+
   .feed > a {
     font-weight: 500px;
     font-size: 24px;
     color: #151414;
     transition: transform 450ms;
   }
-  
+
   .feed > a:hover {
     font-weight: 700px;
     font-size: 24px;
     color: #151414;
     transform: scale(1.08);
   }
-  
+
   .seccion-izq_perfiles {
-    position: absolute;
-    width: 300px;
-    left: 24px;
+    display: grid;
+    grid-column: 1/2;
+    width: 100%;
     background: #151414;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   }
-  
+
   .txt-izq_perfiles {
     color: white;
     font-size: 12px;
     text-align: left;
     padding: 20px;
   }
-  
+
   .txt-izq_perfiles > h5 > em > a {
     text-decoration: none;
     color: #17cc29;
   }
-  
+
   .txt-izq_perfiles > h5 > em > a:hover {
     color: #51cb5d;
     font-weight: 900;
   }
-  
+
   /******************** FOOTER ************************/
-  
+
   .footer1 {
     background-color: #151414;
     border-radius: 5px;
@@ -342,14 +337,14 @@
     font: normal 16px sans-serif;
     padding: 45px 50px;
   }
-  
+
   .footer1 .footer-left p {
     color: #ffffff;
     font-size: 14px;
     margin: 0;
   }
   /* Footer links */
-  
+
   .footer1 p.footer-links {
     font-size: 18px;
     font-weight: bold;
@@ -358,7 +353,7 @@
     padding: 0;
     transition: ease 0.25s;
   }
-  
+
   .footer1 p.footer-links a {
     display: inline-block;
     line-height: 1.8;
@@ -366,7 +361,7 @@
     color: inherit;
     transition: ease 0.25s;
   }
-  
+
   .footer1 .footer-links a:before {
     content: "·";
     font-size: 20px;
@@ -375,17 +370,17 @@
     display: inline-block;
     padding-right: 5px;
   }
-  
+
   .footer1 .footer-links .link-1:before {
     content: none;
   }
-  
+
   .footer1 .footer-right {
     float: right;
     margin-top: 6px;
     max-width: 180px;
   }
-  
+
   .footer1 .footer-right a {
     display: inline-block;
     width: 35px;
@@ -399,16 +394,16 @@
     margin-left: 3px;
     transition: all 0.25s;
   }
-  
+
   .footer1 .footer-right a:hover {
     transform: scale(1.1);
     -webkit-transform: scale(1.1);
   }
-  
+
   .footer1 p.footer-links a:hover {
     text-decoration: underline;
   }
-  
+
   .error {
     display: flex;
     flex-direction: row;
@@ -416,17 +411,8 @@
     align-items: center;
     color: white;
   }
-  
-  .footer__nuevo {
-    display: flex;
-    justify-content: center;
-    color: white;
-    background-color: #151414;
-    padding: 15px;
-    text-align: center;
-    font-size: 12px;
-  }
-  
+
+  /*
   .muro__feed {
     display: flex;
     flex-direction: column;
@@ -439,31 +425,31 @@
     padding: 40px 60px;
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
   }
-  
+
   .muro {
     background-color: #151414;
     display: flex;
   }
-  
+
   .posteo {
     display: flex;
     flex-direction: column;
   }
-  
+
   .posteo__top {
     display: flex;
     gap: 10px;
     align-items: flex-end;
   }
-  
+
   .posteo__text {
     padding: 0 50px;
   }
-  
+
   .posteo__video {
     padding: 0 50px;
   }
-  
+
   .posteo__foto {
     border-radius: 50%;
     height: 40px;
@@ -471,48 +457,55 @@
     object-fit: cover;
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
   }
-  
+
   .posteo__enlace {
     text-decoration: none;
     color: #000;
   }
-  
+
   .posteo__enlace:hover {
     font-weight: 900;
     color: #17cc29;
   }
-  
+  */
   .card-shadow {
+    width: 100%;
     box-shadow: 3px 2px 8px rgba(0, 0, 0, 0.5);
   }
-  
+
+  .card-ver-mas {
+    background: none;
+    box-shadow: none;
+    border: 0px;
+  }
+
   .btn-primary {
     background-color: #17cc29 !important;
     border: none !important;
     transition: transform 450ms !important;
   }
-  
+
   .btn-primary:hover {
     transform: scale(1.05);
   }
-  
+
   .btn-ver-mas {
     border-radius: 50px !important;
     width: 5vw;
     height: 5vw;
     min-width: 36px;
     min-height: 36px;
+    margin: auto;
   }
-  
+
   .mis-bandas {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     flex-wrap: wrap;
-    gap: 10px;
-    width: 50vw;
+    width: 100%;
+    grid-gap: 20px;
   }
-  
+
   .mi-lugar {
     display: flex;
     justify-content: flex-start;
@@ -521,17 +514,19 @@
     gap: 10px;
     width: 50vw;
   }
-  
-  
+
+
   .card-img-top {
     object-fit: cover !important;
   }
-  
+
   .cont__perfil-aside {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-column: 2/6;
+    width: 100%;
+    padding: 0 30px;
   }
-  
+
   .bandas-videos-canciones {
     display: flex;
     flex-direction: column;
@@ -539,7 +534,7 @@
     flex-wrap: wrap;
     flex: 2;
   }
-  
+
   .lugar-videos {
     display: flex;
     flex-direction: column;
@@ -547,22 +542,16 @@
     flex-wrap: wrap;
     flex: 2;
   }
-  
-  
-  .aside {
-    flex: 1;
-  }
-  
   .btn-audio {
     width: 40px;
     height: 40px;
   }
-  
+
   .btn-audio-play {
     width: 25px;
     height: 25px;
   }
-  
+
   .reproductor-audio {
     background-color: white;
     display: flex;
@@ -570,21 +559,21 @@
     align-content: flex-start;
     align-items: center;
   }
-  
+
   .barra-progreso-audio {
     width: 20vw;
     height: 1vw;
     background-color: grey;
     display: inline-block;
   }
-  
+
   .barra-volumen {
     width: 6vw;
     height: 1vw;
     background-color: grey;
     display: inline-block;
   }
-  
+
   .item-audio {
     display: flex;
     justify-content: space-between;
@@ -593,12 +582,12 @@
     padding-left: 8px;
     padding-right: 8px;
   }
-  
+
   .item-audio:hover {
     background-color: black;
     color: white;
   }
-  
+
   .item-audio-seleccionado {
     background-color: black;
     color: white;
@@ -607,93 +596,106 @@
     padding-left: 8px;
     padding-right: 8px;
   }
-  
+
   .like {
     width: 20px;
     height: 20px;
     margin-left: 5vw;
     margin-right: 8px;
   }
-  
+
   .like:hover {
     transform: scale(1.2);
     filter: drop-shadow(0 2px 5px rgba(23, 204, 41, 1));
   }
-  
+
   @media screen and (max-width: 1300px) {
+    .structure_aside {
+      display: flex;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .cont__perfil-aside {
+      display: grid;
+      grid-column: 2/5;
+      width: 100%;
+      padding: 0 30px;
+    }
     .seccion-izq_perfiles {
-      width: 220px;
+      display: grid;
+      grid-column: 1/2;
+      width: 100%;
+      background: #151414;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+    .mis-bandas {
+      grid-template-columns: repeat(2, 1fr);
     }
   }
-  
+
   @media screen and (max-width: 1000px) {
     .nav__feed-btns {
       flex-direction: row;
     }
-  
+
     .nav__feed {
       flex-direction: column;
       align-items: flex-start;
     }
-  
+
     .muro__feed {
       width: 90vw;
     }
-  
-    .seccion-izq_perfiles {
-      width: 90vw;
+
+    .structure_aside {
+      display: block;
+      width: 90%;
       margin: auto;
     }
-  
-    .bandas-videos-canciones {
-      margin-top: 400px;
-      margin-left: 10px;
-      flex-direction: row;
+    .cont__perfil-aside{
+      margin-top: 25px;
+      padding: 0px;
     }
-  
-    .lugar-videos {
-      margin-top: 400px;
-      margin-left: 10px;
-      flex-direction: row;
+    .seccion-discografia .mis-bandas{
+      grid-template-columns: repeat(4, 1fr);
     }
-  
-    .mis-bandas {
-      width: 90vw;
+    .mis-bandas{
+      grid-template-columns: repeat(2, 1fr);
     }
-  
-    .mi-lugar {
-      width: 90vw;
+    .card {
+      width: 100%;
+      grid-gap: 0;
     }
-  
-    .canciones-titulo {
-      margin-top: 80px;
+    .mis-bandas iframe {
+      width: 100%;
+      height: 315px;
     }
   }
-  
+
   @media screen and (max-width: 770px) {
     .media-content {
       display: none;
     }
-  
+
     .nav__feed-btns {
       display: none;
     }
-  
+
     .nav__profile-img {
       width: 70px;
       height: 70px;
     }
-  
+
     .nav__profile-nombre {
       font-size: 25px;
       margin: 0;
     }
-  
+
     .nav__profile-tipo {
       font-size: 20px;
       margin: 0;
     }
-  
+
     .nav__feed {
       height: 150px;
       background-color: #151414;
@@ -702,20 +704,20 @@
       align-items: left;
       padding: 10px 20px;
     }
-  
+
     .nav__feed-profile {
       display: flex;
       align-items: center;
       gap: 10px;
     }
-  
+
     .nav__profile-info {
       display: flex;
       flex-direction: column;
       align-items: left;
       justify-content: center;
     }
-  
+
     .nav__profile-btn-seguir {
       height: 15px;
       display: flex;
@@ -723,26 +725,12 @@
       justify-content: center;
       padding: 15px;
     }
-  
+
     .posteo__video {
       width: 80vw;
     }
-  
+
     .muro__feed {
       padding: 20px 10px;
     }
-  
-    .bandas-videos-canciones {
-      margin-top: 480px;
-      margin-left: 10px;
-      flex-direction: column;
-    }
-  
-    .lugar-videos {
-      margin-top: 480px;
-      margin-left: 10px;
-      flex-direction: column;
-    }
-  
   }
-  

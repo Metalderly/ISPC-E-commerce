@@ -1,26 +1,27 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
-import { DashboardModule } from './dashboard/dashboard.module';
-import { AuthenticationModule } from './authentication/authentication.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
-import { LoginComponent } from './authentication/login/login.component';
+import { CoreModule } from './core/core.module';
+import { PagesModule } from './pages/pages.module';
+import { AuthenticationModule } from './authentication/authentication.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
-    RouterModule.forRoot([
-      { path: 'login', component: LoginComponent }
-    ]),
-    DashboardModule,
-    AuthenticationModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    PagesModule,
+    CoreModule,
+    HttpClientModule,
+    AuthenticationModule,
+    ReactiveFormsModule
   ],
   exports: [RouterModule],
   providers: [],

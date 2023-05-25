@@ -1,0 +1,24 @@
+.web {
+  display:  block;
+}
+.mobile {
+  display: none;
+}
+.navbar-brand {
+    color: #17cc29 !important;
+    font-weight: bold;
+    font-size: 22px;
+    margin-left: 16px;
+}
+
+@media screen and (max-width: 991px){
+  .web{
+    display: none;
+  }
+  .mobile {
+    display: block;
+  }
+  .mobile .collapse{
+    display: block;
+  }
+}

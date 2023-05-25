@@ -1,1 +1,11 @@
-<p>cart works!</p>
+<div class="cart" (click)="toggleCart()">
+  <img src="../../../assets/images/shopping-cart.png" alt="">
+  <p class="counter" *ngIf="counter_cart!=''">{{counter_cart}}</p>
+</div>
+
+<div class="products" *ngIf="visibilityCart">
+  <p *ngIf="listProducts.size==0">No hay productos en la lista</p>
+  <div class="product" *ngFor="let product of listProducts.entries()">
+    <p>{{product[0]}} x{{product[1][1]}} - {{product[1][0] | currency}}</p>
+  </div>
+</div>
