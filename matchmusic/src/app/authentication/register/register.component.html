@@ -1,5 +1,5 @@
 <main class="text-center">
-    <form class="col-6" id="form" action="./login.html" method="get">
+    <form class="col-6" id="form" action="./login.html" method="get"[formGroup]="registerForm" (ngSubmit)="registerSubmited()">
       <h1 class="login__logo">MATCH MUSIC</h1>
       <p>registro</p>
       <label for="nombre" class="form-label d-block mt-1 login__input">
@@ -8,9 +8,11 @@
           type="text"
           name="nombre"
           placeholder="Nombre:"
-          required
-          id="nombre"
+          id="name"
+          formControlName="name"
         />
+        <span class="text-danger fw-bold" *ngIf="name.errors?.['required'] && name.touched">Nombre es obligatorio</span>
+        <span class="text-danger fw-bold" *ngIf="name.errors?.['minlength']">Usuario muy corto</span>
       </label>
       <label class="form-label d-block mt-1 login__input">
         <input
@@ -18,9 +20,11 @@
           type="text"
           name="username"
           placeholder="Username:"
-          required
           id="username"
+          formControlName="username"
         />
+        <span class="text-danger fw-bold" *ngIf="username.errors?.['required'] && username.touched">Usuario es obligatorio</span>
+        <span class="text-danger fw-bold" *ngIf="username.errors?.['minlength']">Usuario muy corto</span>
       </label>
       <label class="form-label d-block mt-1 login__input">
         <input
@@ -28,9 +32,11 @@
           type="email"
           name="email"
           placeholder="Email:"
-          required
           id="email"
+          formControlName="email"
         />
+        <span class="text-danger fw-bold" *ngIf="email.errors?.['required'] && (email.dirty || email.touched)">Email es obligatorio</span>
+        <span class="text-danger fw-bold" *ngIf="email.errors?.['email'] && (email.dirty || email.touched)">Email invalido</span>
       </label>
       <label class="form-label d-block login__input">
         <input
@@ -38,12 +44,14 @@
           type="password"
           name="password"
           placeholder="Password:"
-          required
           id="password"
+          formControlName="password"
         />
+        <span class="text-danger fw-bold" *ngIf="password.errors?.['required'] && password.touched">Contraseña es obligatorio</span>
+    <span class="text-danger fw-bold" *ngIf="password.errors?.['minlength'] ||password.errors?.['maxlength'] && password.touched">La contraseña debe tener entre 5 y 16 caracteres</span>
       </label>
       <div id="error" class="error"></div>
-      <button type="submit" class="login__btn">
+      <button type="submit" class="login__btn" [disabled]="registerForm.invalid">
         <p class="login__btn-p">registrar</p>
       </button>
     </form>

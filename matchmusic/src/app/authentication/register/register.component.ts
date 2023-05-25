@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -9,4 +8,30 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class RegisterComponent {
 
+  registerForm: FormGroup = new FormGroup({});
+  constructor(private formBuilder: FormBuilder) {}
+  ngOnInit(): void {
+    this.registerForm = this.formBuilder.group({
+      name: ['', [Validators.required, Validators.minLength(4)]],
+      username: ['', [Validators.required, Validators.minLength(5)]],
+      password: ['', [Validators.required, Validators.minLength(5),Validators.maxLength(16)]],
+      email: ['', [Validators.required, Validators.email]]
+    });
+  
+  }
+  registerSubmited(){
+    console.log(this.registerForm)
+  }
+  get name(){
+    return this.registerForm.get('name') as FormControl;
+  }
+  get username(){
+    return this.registerForm.get('username') as FormControl;
+  }
+  get password(){
+    return this.registerForm.get('password') as FormControl;
+  }
+  get email(){
+    return this.registerForm.get('email') as FormControl;
+  }
 }
