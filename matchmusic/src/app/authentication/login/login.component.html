@@ -1,43 +1,38 @@
-<div class="text-center">
-    <form class="col-6" id="form-log" action="./feed.html" method="get">
-      <h1 class="login__logo">MATCH MUSIC</h1>
-      <p>Sign in</p>
-      <label class="form-label d-block mt-1 login__input">
-        <input
-          class="form-control"
-          type="text"
-          name="username"
-          placeholder="Username:"
-          required
-          id="username-log"
-        />
-      </label>
-      <label class="form-label d-block login__input">
-        <input
-          class="form-control"
-          type="password"
-          name="password"
-          placeholder="Password:"
-          required
-          id="password-log"
-        />
-      </label>
-      <div id="error" class="error"></div>
-      <button type="submit" class="login__btn">
-        <p class="login__btn-p">log in</p>
-      </button>
-    </form>
+<main class="text-center">
+  <form class="col-6" id="form-log" (submit)="clickSection('feed')"[formGroup]="loginForm" (ngSubmit)="loginUser()">
+    <h1 class="login__logo">MATCH MUSIC</h1>
+    <p>Sign in</p>
+    <label class="form-label d-block mt-1 login__input">
+      <input
+        class="form-control"
+        type="text"
+        name="username"
+        placeholder="Username:"
+        required
+        id="username-log"
+        formControlName="username"
+      />
+  </label>
+    <span class="text-danger fw-bold" *ngIf="user && user.invalid && user.touched">Usuario es obligatorio</span>
+    <label class="form-label d-block login__input">
+      <input
+        class="form-control"
+        type="password"
+        name="password"
+        placeholder="Password:"
+        formControlName="password"
+      />
+    
+    </label>
+    <span class="text-danger fw-bold" *ngIf="password && password.invalid && password.touched">Contraseña es obligatorio</span>
+    <div id="error" class="error"></div>
+    <button type="submit" class="login__btn" [disabled]="loginForm.invalid">
+      <p class="login__btn-p">log in</p>
+    </button>
+  </form>
 
-    <section class="login__aclaracion">
-      <a href="" class="login__a">Olvidaste tu contraseña?</a>
-      <a href="registro.html" class="login__a">Usuario nuevo?</a>
-    </section>
-</div>
-
-
-
-<footer class="footer__nuevo">
-    Todos los derechos reservados por Match Music ISPC
-</footer>
-
-
+  <section class="login__aclaracion">
+    <a href="" class="login__a">Olvidaste tu contraseña?</a>
+    <a (click)="clickSection('register')" class="login__a">Usuario nuevo?</a>
+  </section>
+</main>
