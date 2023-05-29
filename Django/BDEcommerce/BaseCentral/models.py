@@ -8,10 +8,10 @@ class Usuario (models.Model):
     nombre = models.CharField (max_length=30)
     apellido = models.CharField (max_length=30)
     Email = models.EmailField (max_length=50)
-    pais = models.CharField (max_length=30, default="UTC", null=False)
-    provincia = models.CharField (max_length=30)
-    ciudad = models.CharField (max_length=30)
-    genero = models.CharField (max_length=20)
+    pais = models.CharField (max_length=30, blank=True)
+    provincia = models.CharField (max_length=30, blank=True)
+    ciudad = models.CharField (max_length=30, blank=True)
+    genero = models.CharField (max_length=20, blank=True)
 
     def __str__(self):
         return "{} {}".format(self.apellido, self.nombre)    
