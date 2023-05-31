@@ -14,8 +14,8 @@ class Usuario (models.Model):
     genero = models.CharField (max_length=20, blank=True)
 
     def __str__(self):
-        return "{} {}".format(self.apellido, self.nombre)    
-                            
+        return "{} {}".format(self.apellido, self.nombre)   
+
 class Mitienda (models.Model):
     web = models.URLField (default="https://match-music.netlify.app/")
     pais = models.CharField (max_length=30, default="UTC", null=False)
@@ -30,17 +30,22 @@ class Mitienda (models.Model):
 
     def __str__(self):
         return "{}".format(self.propietario)
-    
 
+class Category(models.Model):
+    name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name
 
 class Producto (models.Model):
     producto = models.CharField(max_length=100)
-    tipo = models.CharField(max_length=100)
+    image = models.TextField(max_length=250, default="")
+    tipo = models.ForeignKey(Category, on_delete=models.CASCADE)
     caracteristicas = models.TextField(max_length=1000)
     codigo = models.IntegerField()
     precioXu = models.FloatField(max_length=10)
     precioXm = models.FloatField(max_length=10)
-
+    vendedor = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     #def __str__(self):
      #   return "{}".format(self.producto)
     
@@ -55,22 +60,22 @@ class Producto (models.Model):
         return self.producto
 
 class TdaPto (models.Model):
-    id_t1 = models.ManyToManyField(Mitienda)
+    #id_t1 = models.ManyToManyField(Mitienda)
     id_p1 = models.ManyToManyField(Producto)
 
 class Pedido (models.Model):
-    fecha = models.DateField(default=datetime)
+    fecha = models.DateField(default=datetime.datetime.now)
     aNombrede = models.CharField(max_length=50)
     nroPedido = models.IntegerField()
     tipoDeEnvio = models.CharField(max_length=50)
     producto = models.CharField(max_length=100)
-    mitienda = models.ForeignKey(Mitienda, on_delete=models.CASCADE)
+    #mitienda = models.ForeignKey(Mitienda, on_delete=models.CASCADE)
 
     def __str__(self):
         return "{}".format (self.nroPedido)
 
 class Venta (models.Model):
-    fecha = models.DateField(default=datetime.time)
+    fecha = models.DateField(default=datetime.datetime.now)
     cantidadDeVentas = models.IntegerField(default=0)
     vendedor = models.CharField(max_length=50)
     
@@ -79,7 +84,7 @@ class Venta (models.Model):
         return "{}".format (self.cantidadDeVentas)
     
 class Factura (models.Model):
-    fecha = models.DateField(default=datetime.timedelta)
+    fecha = models.DateField(default=datetime.datetime.now)
     cuit = models.IntegerField()
     producto = models.CharField(max_length=100)
     cantidad = models.IntegerField(default=0)
@@ -93,7 +98,7 @@ class Factura (models.Model):
     
 
 class Envio (models.Model):
-    fecha = models.DateField(default=datetime.time) 
+    fecha = models.DateField(default=datetime.datetime.now) 
     pais = models.CharField (max_length=30, default="UTC", null=False)
     provincia = models.CharField (max_length=30)
     ciudad = models.CharField (max_length=30)
