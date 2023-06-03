@@ -3,7 +3,8 @@ import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 import { FormRegisterService } from './services/form-register.service';
 import { UsersService } from './services/users.service';
 import { User, UserRequest } from './authentication/models/user.model';
-import { Router } from '@angular/router';
+import { Router, Event, NavigationEnd } from '@angular/router';
+import { throwError } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -22,12 +23,21 @@ export class AppComponent {
     'last_name': ''
   }
   flagRegister: boolean = false;
-  error: string = ''
+  flagLogin: boolean = false;
+
+  errorRegister: string = ''
+  errorLogin: string = ''
   registerForm: FormGroup = new FormGroup({});
+  loginForm: FormGroup = new FormGroup({});
+
 
   ngOnInit(): void {
+
     this.formRegisterService.$flagRegister.subscribe(el => {
       this.flagRegister = el
+    })
+    this.formRegisterService.$flagLogin.subscribe(el => {
+      this.flagLogin = el
     })
     this.registerForm = this.formBuilder.group({
       first_name: ['', [Validators.required]],
@@ -36,6 +46,29 @@ export class AppComponent {
       password: ['', [Validators.required, Validators.minLength(5),Validators.maxLength(16)]],
       email: ['', [Validators.required, Validators.email]]
     });
+    this.loginForm = this.formBuilder.group({
+      usernameLogin: ['', [Validators.required]],
+      passwordLogin: ['', [Validators.required]]
+    });
+  }
+
+  goRegister(){
+    this.navigate.navigate(["/register"])
+  }
+
+
+  /* FORMS */
+  loginSubmited(){
+    this.userService.userByUsername(this.loginForm.value["usernameLogin"], this.loginForm.value["passwordLogin"]).subscribe(el => {
+      if(String(el)=="Datos incorrectos"){
+        this.errorLogin = "Datos incorrectos"
+      } else {
+        this.errorLogin = ""
+        this.userService.userConnected.next(el)
+
+        this.navigate.navigate(['/feed'])
+      }
+    })
   }
   registerSubmited(){
       this.user = {
@@ -49,11 +82,19 @@ export class AppComponent {
         if(data=="[object Object]"){
           this.navigate.navigate(["/login"])
         }else{
-          this.error=data
+          this.errorRegister=data
         }
       })
-
   }
+
+  /* FORM LOGIN */
+  get usernameLogin(){
+    return this.loginForm.get('username') as FormControl;
+  }
+  get passwordLogin(){
+    return this.loginForm.get('password') as FormControl;
+  }
+  /* FORM REGISTER  */
   get first_name(){
     return this.registerForm.get('first_name') as FormControl;
   }

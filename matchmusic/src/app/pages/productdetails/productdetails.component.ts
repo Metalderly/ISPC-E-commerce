@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { ProductsService } from 'src/app/services/products.service';
 import { Product } from '../../ecommerce/models/product.model';
 import { Category } from '../../ecommerce/models/category.enum';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CartService } from 'src/app/services/cart.service';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-productdetails',
@@ -11,7 +12,7 @@ import { CartService } from 'src/app/services/cart.service';
   styleUrls: ['./productdetails.component.css']
 })
 export class ProductdetailsComponent {
-  constructor(private productsService: ProductsService, private router: ActivatedRoute, private cartService: CartService){
+  constructor(private productsService: ProductsService, private router: ActivatedRoute, private navigate: Router, private cartService: CartService, private userService: UsersService){
   }
 
   product: Product = {
@@ -25,6 +26,11 @@ export class ProductdetailsComponent {
   }
 
   ngOnInit(){
+    this.userService.$userConnected.subscribe(data => {
+      if(data.username==''){
+        this.navigate.navigate(['/login'])
+      }
+    })
     this.productsService.getProductById(this.router.snapshot.params['id']).subscribe(el => {
       this.product = el
     })

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
-  constructor(private router: Router){
+  constructor(private router: Router, private userService: UsersService){
   }
 
   path: string = this.router.url
@@ -16,6 +17,20 @@ export class HeaderComponent {
 
   goToSection(section: string){
     this.router.navigate([section])
+  }
+  session(){
+    this.userService.userConnected.next({
+      'username':'',
+      'email':'',
+      'password':'',
+      'first_name':'',
+      'last_name': '',
+      'country':'',
+      'province':'',
+      'city':'',
+      'gender':''
+    })
+    this.router.navigate(["/login"])
   }
   toggleMenu(){
     this.menu = !this.menu
