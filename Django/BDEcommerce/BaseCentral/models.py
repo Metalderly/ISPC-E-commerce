@@ -1,20 +1,36 @@
 import datetime
 
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 from django.utils import timezone
 
+OPCIONES_GENERO = (
+    ('M', 'MASCULINO'),
+    ('F', 'FEMENINO'),
+    ('O', 'OTRO')
+)
+
+class Users(AbstractUser):
+    pais = models.CharField (max_length=30, blank=True)
+    provincia = models.CharField (max_length=30, blank=True)
+    ciudad = models.CharField (max_length=30, blank=True)
+    genero = models.CharField (max_length=20, blank=True, choices=OPCIONES_GENERO)
+
+    def __str__(self):
+        return self.username   
+
 class Usuario (models.Model):
-    dni = models.IntegerField ()
-    nombre = models.CharField (max_length=30)
-    apellido = models.CharField (max_length=30)
-    Email = models.EmailField (max_length=50)
+    dni = models.IntegerField (blank=False)
+    nombre = models.CharField (max_length=30, blank=False)
+    apellido = models.CharField (max_length=30, blank=False)
+    Email = models.EmailField (max_length=50, blank=False)
+    contraseña = models.CharField(max_length=50, blank=False)
     pais = models.CharField (max_length=30, blank=True)
     provincia = models.CharField (max_length=30, blank=True)
     ciudad = models.CharField (max_length=30, blank=True)
     genero = models.CharField (max_length=20, blank=True)
 
-    def __str__(self):
-        return "{} {}".format(self.apellido, self.nombre)   
+    
 
 class Mitienda (models.Model):
     web = models.URLField (default="https://match-music.netlify.app/")
@@ -42,9 +58,7 @@ class Producto (models.Model):
     image = models.TextField(max_length=250, default="")
     tipo = models.ForeignKey(Category, on_delete=models.CASCADE)
     caracteristicas = models.TextField(max_length=1000)
-    codigo = models.IntegerField()
-    precioXu = models.FloatField(max_length=10)
-    precioXm = models.FloatField(max_length=10)
+    precio = models.FloatField(max_length=10)
     vendedor = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     #def __str__(self):
      #   return "{}".format(self.producto)

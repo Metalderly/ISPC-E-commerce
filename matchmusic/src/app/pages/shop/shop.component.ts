@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ProductsService } from 'src/app/services/products.service';
 import { Product } from 'src/app/ecommerce/models/product.model';
 import { Router } from '@angular/router';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-shop',
@@ -9,11 +10,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./shop.component.css']
 })
 export class ShopComponent {
-  constructor(private productsService: ProductsService, private router: Router){
+  constructor(private productsService: ProductsService, private router: Router, private userService: UsersService){
   }
   listProducts: Product[] = []
 
   ngOnInit(){
+    this.userService.$userConnected.subscribe(data => {
+      if(data.username==''){
+        this.router.navigate(['/login'])
+      }
+    })
     this.productsService.getAllProducts().subscribe(el => {
       this.listProducts = el
     })

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit{
-  constructor(private router: Router){}
+  constructor(private router: Router, private userService: UsersService){}
 
   goToLogin(){
     this.router.navigate(['login'])
@@ -30,6 +31,10 @@ export class HomeComponent implements OnInit{
     description: "¿Tenés un lugar para hacer shows? Ponete en contacto con músicos para programar fechas en vivo."
   }
   ngOnInit(): void {
-    
+    this.userService.$userConnected.subscribe(data => {
+      if(data.username!=''){
+        this.router.navigate(['/feed'])
+      }
+    })
   }
 }
