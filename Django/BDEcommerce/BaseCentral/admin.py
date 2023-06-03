@@ -1,13 +1,13 @@
 from django.contrib import admin
-from BaseCentral.models import Usuario, Producto, Mitienda, Pedido, Venta, Factura, Envio, Category
+from BaseCentral.models import Users, Producto, Mitienda, Pedido, Venta, Factura, Envio, Category
 
-admin.site.register(Usuario)
+admin.site.register(Users)
 admin.site.register(Mitienda)
 #admin.site.register(TdaPto)
 
 
 class ProductoAdmin(admin.ModelAdmin):
-    list_display = ('producto', 'tipo', 'caracteristicas', 'codigo', 'precioXu', 'precioXm')
+    list_display = ('producto', 'tipo', 'caracteristicas', 'precio')
 
 admin.site.register(Producto, ProductoAdmin)
 admin.site.register(Pedido)
