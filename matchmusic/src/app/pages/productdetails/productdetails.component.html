@@ -1,10 +1,10 @@
 <app-header></app-header>
 <div class="product">
   <img [src]="product.image" width="200px">
-  <p>{{product.name}}</p>
-  <p>{{product.description}}</p>
-  <p>{{product.price | currency}}</p>
-  <p>Este producto es vendido por: {{product.seller}}</p>
+  <p>{{product.producto}}</p>
+  <p>{{product.caracteristicas}}</p>
+  <p>{{product.precio | currency}}</p>
+  <p>Este producto es vendido por: {{product.vendedor}}</p>
   <button (click)="addCart(product)">Agregar al carrito</button>
 </div>
 <app-footer></app-footer>

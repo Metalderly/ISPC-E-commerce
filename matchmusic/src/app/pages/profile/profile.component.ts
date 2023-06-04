@@ -19,23 +19,23 @@ export class ProfileComponent{
     'password':'',
     'first_name':'',
     'last_name': '',
-    'country':'',
-    'province':'',
-    'city':'',
-    'gender':''
+    'pais':'',
+    'provincia':'',
+    'ciudad':'',
+    'genero':''
   }
   products: Product[] = []
   ngOnInit(){
     this.userService.$userConnected.subscribe(data => {
       if(data.username==''){
         this.router.navigate(['/login'])
+      } else {
+        this.userConnected=data
+        this.productsService.getProductsByUsername(data.username).subscribe(el => {
+          this.products = el
+        })
       }
-    })
-    this.productsService.getProductBySeller("Mick Jagger").subscribe(el => {
-      this.products = el
-    })
-    this.userService.$userConnected.subscribe(data => {
-      this.userConnected=data
+
     })
   }
   clickSection(id: number){

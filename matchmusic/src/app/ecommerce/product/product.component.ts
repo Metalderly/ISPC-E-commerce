@@ -10,12 +10,12 @@ import { Category } from '../models/category.enum';
 export class ProductComponent implements OnInit {
   @Input() product: Product = {
     id:0,
-    name:'',
-    description:'',
+    producto:'',
+    caracteristicas:'',
     image:'',
-    price:0,
-    seller:'',
-    category:Category.Accesorios
+    precio:0,
+    vendedor:'',
+    tipo:Category.Accesorios
   }
 
   ngOnInit(){

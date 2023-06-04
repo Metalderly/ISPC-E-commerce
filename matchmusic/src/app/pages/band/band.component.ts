@@ -17,11 +17,13 @@ export class BandComponent {
     this.userService.$userConnected.subscribe(data => {
       if(data.username==''){
         this.router.navigate(['/login'])
+      } else {
+        this.productsService.getProductsByUsername(data.username).subscribe(el => {
+          this.products = el
+        })
       }
     })
-    this.productsService.getProductBySeller("Mick Jagger").subscribe(el => {
-      this.products = el
-    })
+
   }
 
   clickSection(id: number){
