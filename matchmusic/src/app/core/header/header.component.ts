@@ -25,10 +25,10 @@ export class HeaderComponent {
       'password':'',
       'first_name':'',
       'last_name': '',
-      'country':'',
-      'province':'',
-      'city':'',
-      'gender':''
+      'pais':'',
+      'provincia':'',
+      'ciudad':'',
+      'genero':''
     })
     this.router.navigate(["/login"])
   }

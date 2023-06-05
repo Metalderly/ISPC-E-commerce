@@ -65,7 +65,6 @@ export class AppComponent {
       } else {
         this.errorLogin = ""
         this.userService.userConnected.next(el)
-
         this.navigate.navigate(['/feed'])
       }
     })

@@ -15,10 +15,10 @@ export class UsersService {
     'password':'',
     'first_name':'',
     'last_name': '',
-    'country':'',
-    'province':'',
-    'city':'',
-    'gender':''
+    'pais':'',
+    'provincia':'',
+    'ciudad':'',
+    'genero':''
   })
   $userConnected = this.userConnected.asObservable()
 

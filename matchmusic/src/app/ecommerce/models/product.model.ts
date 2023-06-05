@@ -1,12 +1,13 @@
+import { User } from "src/app/authentication/models/user.model"
 import { Category } from "./category.enum"
 
 export interface Product{
   id: number
-  name: string
-  description: string
-  price: number
+  producto: string
   image: string
-  seller: string
-  category: Category
+  tipo: Category
+  caracteristicas: string
+  precio: number
+  vendedor: string
 }
 

@@ -29,7 +29,6 @@ class Usuario (models.Model):
     provincia = models.CharField (max_length=30, blank=True)
     ciudad = models.CharField (max_length=30, blank=True)
     genero = models.CharField (max_length=20, blank=True)
-
     
 
 class Mitienda (models.Model):
@@ -59,15 +58,8 @@ class Producto (models.Model):
     tipo = models.ForeignKey(Category, on_delete=models.CASCADE)
     caracteristicas = models.TextField(max_length=1000)
     precio = models.FloatField(max_length=10)
-    vendedor = models.ForeignKey(Usuario, on_delete=models.CASCADE)
-    #def __str__(self):
-     #   return "{}".format(self.producto)
+    vendedor = models.ForeignKey(Users, on_delete=models.CASCADE)
     
-    class Pro:
-        db_table = 'producto'
-        verbose_name = 'Producto'
-        verbose_name_plural = 'Productos'
-
     def __unicode__ (self):
         return self.producto
     def __str__(self):

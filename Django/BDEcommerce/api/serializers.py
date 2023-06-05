@@ -1,13 +1,13 @@
 from rest_framework import serializers
-from BaseCentral.models import Usuario, Producto
+from BaseCentral.models import Users, Producto
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Usuario
-        fields = ["dni", "nombre", "apellido", "Email"]
+        model = Users
+        fields = ["username", "password", "email", "first_name", "last_name", "pais", "provincia", "ciudad", "genero"]
 
 
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Producto
-        fields = ["producto", "image", "tipo", "caracteristicas", "codigo", "precioXu", "precioXm", "vendedor"]
+        fields = ["id", "producto", "image", "tipo", "caracteristicas", "precio", "vendedor"]

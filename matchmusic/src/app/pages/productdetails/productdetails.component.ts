@@ -17,12 +17,12 @@ export class ProductdetailsComponent {
 
   product: Product = {
     id:0,
-    name:'',
-    description:'',
+    producto:'',
     image:'',
-    price:0,
-    seller:'',
-    category:Category.Entradas
+    tipo:Category.Accesorios,
+    caracteristicas:'',
+    precio:0,
+    vendedor: ''
   }
 
   ngOnInit(){

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../ecommerce/models/product.model';
 import { BehaviorSubject } from "rxjs"
-import { Category } from '../ecommerce/models/category.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -18,13 +17,13 @@ export class CartService {
   $quantyObservable = this.quantityObservable.asObservable()
 
   addProduct(product: Product){
-    if(this.listProducts.has(product.name)){
-      this.listProducts.set(product.name, [
-        Number(this.listProducts.get(product.name)!![0])+product.price,
-        Number(this.listProducts.get(product.name)!![1])+1
+    if(this.listProducts.has(product.producto)){
+      this.listProducts.set(product.producto, [
+        Number(this.listProducts.get(product.producto)!![0])+product.precio,
+        Number(this.listProducts.get(product.producto)!![1])+1
       ])
     } else {
-      this.listProducts.set(product.name,[product.price, 1])
+      this.listProducts.set(product.producto,[product.precio, 1])
     }
     this.listObservable.next(this.listProducts)
   }

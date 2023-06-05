@@ -13,15 +13,12 @@ export class ProductsService {
   listProducts: Product[] = []
 
   getAllProducts(){
-    return this.http.get<Product[]>("http://localhost:3000/products")
+    return this.http.get<Product[]>("http://localhost:8000/v1/products")
   }
-  getProductById(id_product: number){
-    return this.http.get<Product>(`http://localhost:3000/products/${id_product}`)
+  getProductsByUsername(username: string){
+    return this.http.get<Product[]>(`http://localhost:8000/v1/products/${username}`)
   }
-  getProductByCategory(category: string){
-    return this.http.get<Product[]>("http://localhost:3000/products", {params: {"category":category}})
-  }
-  getProductBySeller(seller: string){
-    return this.http.get<Product[]>("http://localhost:3000/products", {params: {"seller":seller}})
+  getProductById(id: number){
+    return this.http.get<Product>(`http://localhost:8000/v1/product/${id}`)
   }
 }
