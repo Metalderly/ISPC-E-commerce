@@ -9,19 +9,6 @@ import { BehaviorSubject, catchError, throwError } from 'rxjs';
 export class UsersService {
   constructor(private http: HttpClient) { }
 
-  userConnected = new BehaviorSubject<User>({
-    'username':'',
-    'email':'',
-    'password':'',
-    'first_name':'',
-    'last_name': '',
-    'pais':'',
-    'provincia':'',
-    'ciudad':'',
-    'genero':''
-  })
-  $userConnected = this.userConnected.asObservable()
-
   getUsers(){
     return this.http.get<User[]>("http://localhost:8000/v1/users")
   }

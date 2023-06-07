@@ -1,0 +1,70 @@
+<!-- FORM REGISTER -->
+<main class="text-center">
+  <form class="col-6" id="form" [formGroup]="registerForm" (ngSubmit)="registerSubmited()">
+    <h1 class="login__logo">MATCH MUSIC</h1>
+    <p>registro</p>
+    <label for="nombre" class="form-label d-block mt-1 login__input">
+      <input
+        class="form-control required"
+        type="text"
+        name="first_name"
+        placeholder="Nombre:"
+        id="first_name"
+        formControlName="first_name"
+      />
+      <span class="text-danger fw-bold" *ngIf="first_name.errors?.['required'] && first_name.touched">Nombre es obligatorio</span>
+    </label>
+    <label for="nombre" class="form-label d-block mt-1 login__input">
+      <input
+        class="form-control required"
+        type="text"
+        name="last_name"
+        placeholder="Apellido:"
+        id="last_name"
+        formControlName="last_name"
+      />
+      <span class="text-danger fw-bold" *ngIf="last_name.errors?.['required'] && last_name.touched">Nombre es obligatorio</span>
+    </label>
+    <label class="form-label d-block mt-1 login__input">
+      <input
+        class="form-control required"
+        type="text"
+        name="username"
+        placeholder="Username:"
+        id="username"
+        formControlName="username"
+      />
+      <span class="text-danger fw-bold" *ngIf="username.errors?.['required'] && username.touched">Usuario es obligatorio</span>
+      <span class="text-danger fw-bold" *ngIf="username.errors?.['minlength']">Usuario muy corto</span>
+    </label>
+    <label class="form-label d-block mt-1 login__input">
+      <input
+        class="form-control required"
+        type="email"
+        name="email"
+        placeholder="Email:"
+        id="email"
+        formControlName="email"
+      />
+      <span class="text-danger fw-bold" *ngIf="email.errors?.['required'] && (email.dirty || email.touched)">Email es obligatorio</span>
+      <span class="text-danger fw-bold" *ngIf="email.errors?.['email'] && (email.dirty || email.touched)">Email invalido</span>
+    </label>
+    <label class="form-label d-block login__input">
+      <input
+        class="form-control required"
+        type="password"
+        name="password"
+        placeholder="Password:"
+        id="password"
+        formControlName="password"
+      />
+      <span class="text-danger fw-bold" *ngIf="password.errors?.['required'] && password.touched">Contraseña es obligatorio</span>
+      <span class="text-danger fw-bold" *ngIf="password.errors?.['minlength'] ||password.errors?.['maxlength'] && password.touched">La contraseña debe tener entre 5 y 16 caracteres</span>
+    </label>
+    <div id="error" class="error"></div>
+    <button type="submit" class="login__btn" [disabled]="registerForm.invalid">
+      <p class="login__btn-p">registrar</p>
+    </button>
+  </form>
+  <p class="error">{{errorRegister}}</p>
+</main>
