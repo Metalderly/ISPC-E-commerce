@@ -86,7 +86,6 @@ DATABASES = {
         'NAME': 'Music_Ecommerce',
         'USER': 'deo',
         'PASSWORD': 'Oedsoltero*/40'
-        'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '3037',
     }
