@@ -19,17 +19,7 @@ export class HeaderComponent {
     this.router.navigate([section])
   }
   session(){
-    this.userService.userConnected.next({
-      'username':'',
-      'email':'',
-      'password':'',
-      'first_name':'',
-      'last_name': '',
-      'pais':'',
-      'provincia':'',
-      'ciudad':'',
-      'genero':''
-    })
+    localStorage.removeItem("username")
     this.router.navigate(["/login"])
   }
   toggleMenu(){

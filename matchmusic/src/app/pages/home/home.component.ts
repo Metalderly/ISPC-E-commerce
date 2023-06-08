@@ -7,7 +7,7 @@ import { UsersService } from 'src/app/services/users.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
-export class HomeComponent implements OnInit{
+export class HomeComponent {
   constructor(private router: Router, private userService: UsersService){}
 
   goToLogin(){
@@ -30,11 +30,5 @@ export class HomeComponent implements OnInit{
     image: '../../../assets/images/pexels-photo-6173928.webp',
     description: "¿Tenés un lugar para hacer shows? Ponete en contacto con músicos para programar fechas en vivo."
   }
-  ngOnInit(): void {
-    this.userService.$userConnected.subscribe(data => {
-      if(data.username!=''){
-        this.router.navigate(['/feed'])
-      }
-    })
-  }
+
 }
