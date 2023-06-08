@@ -54,7 +54,7 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
 ]
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:4200',
+    'http://localhost',
 ]
 
 ROOT_URLCONF = 'BDEcommerce.urls'
@@ -88,7 +88,7 @@ DATABASES = {
         'USER': 'deo',
         'PASSWORD': 'Oedsoltero*/40',
         'HOST': 'localhost',
-        'PORT': '3037',
+        'PORT': '3306',
     }
 }
 
