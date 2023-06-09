@@ -15,6 +15,9 @@ export class UsersService {
   userByUsername(username: string, password:string) {
     return this.http.get<User>("http://localhost:8000/v1/user/"+username+"/"+password)
   }
+  userById(id: number) {
+    return this.http.get<User>("http://localhost:8000/v1/user/"+id)
+  }
   postUser(user: UserRequest){
     return this.http.post<string>("http://localhost:8000/v1/users", user)
   }

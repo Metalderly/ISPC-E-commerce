@@ -13,14 +13,22 @@ export class ShopComponent {
   constructor(private productsService: ProductsService, private router: Router, private userService: UsersService){
   }
   listProducts: Product[] = []
+  listMeProducts: Product[] = []
+  flagProduct: boolean = false
+  username = JSON.parse(localStorage.getItem('username')!!)
 
   ngOnInit(){
     this.productsService.getAllProducts().subscribe(el => {
       this.listProducts = el
     })
+    this.productsService.getProductsByUsername(this.username.username).subscribe(data => {
+      this.listMeProducts = data
+    })
   }
-
   clickSection(id: number){
     this.router.navigate([`shop/product/${id}`])
+  }
+  clickProducts(){
+    this.flagProduct = !this.flagProduct
   }
 }

@@ -27,6 +27,15 @@ class UserByUsernameView(APIView):
           return Response(serializer.data)
       except:
           return Response("Datos incorrectos")
+class UserByIdView(APIView):
+    def get(self, request, id):
+      try:
+        model = Users.objects.get(id=id)
+        serializer = UserSerializer(model)
+        if(Users.objects.filter(id=id).exists()):
+          return Response(serializer.data)
+      except:
+          return Response("Datos incorrectos")
 
 class ProductView(APIView):
     def get(self, request):
@@ -48,6 +57,20 @@ class ProductByUsernameView(APIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
 class ProductByIdView(APIView):
     def get(self, request, id):
+        try:
+            product = Producto.objects.get(id=id)
+            serializer = ProductSerializer(product)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        except Producto.DoesNotExist:
+            return Response("No se ha encontrado ningún producto")
+    def put(self, request, id):
         product = Producto.objects.get(id=id)
-        serializer = ProductSerializer(product)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        serializer = ProductSerializer(product, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response("Producto actualizado", status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_404_NOT_FOUND)
+    def delete(self, request, id):
+        product = Producto.objects.get(id=id)
+        product.delete()
+        return Response("Producto eliminado correctamente")

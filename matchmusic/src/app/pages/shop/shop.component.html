@@ -19,12 +19,33 @@
       <option value="precioAscendente">Precio de menor a mayor</option>
     </select>
   </div>
-
-  <div class="products">
+  <div class="add">
+    <p class="more">+</p>
+    <p class="add_product">agregar producto</p>
+  </div>
+  <div class="all_products" *ngIf="!flagProduct">
+    <div class="texts">
+      <h3 class="all_text">Todos los productos</h3>
+      <h3 class="me_text" (click)="clickProducts()">Ver mis productos</h3>
+    </div>
+    <div class="products">
       <div *ngFor="let product of listProducts">
         <app-product [product]="product" (click)="clickSection(product.id)"></app-product>
       </div>
+    </div>
   </div>
+  <div class="me_products" *ngIf="flagProduct">
+    <div class="texts">
+      <h3 class="all_text">Mis productos</h3>
+      <h3 class="me_text" (click)="clickProducts()">Ver todos los productos</h3>
+    </div>
+    <div class="products">
+      <div *ngFor="let product of listMeProducts">
+        <app-product [product]="product" (click)="clickSection(product.id)"></app-product>
+      </div>
+    </div>
+  </div>
+
 </div>
 <app-footer></app-footer>
 

@@ -1,3 +1,6 @@
+<header>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</header>
 <app-header></app-header>
 <div class="product">
   <img [src]="product.image" width="200px">
@@ -5,6 +8,11 @@
   <p>{{product.caracteristicas}}</p>
   <p>{{product.precio | currency}}</p>
   <p>Este producto es vendido por: {{product.vendedor}}</p>
-  <button (click)="addCart(product)">Agregar al carrito</button>
+  <div class="actions">
+    <button (click)="addCart(product)">Agregar al carrito</button>
+    <span class="material-symbols-outlined" *ngIf="flagProductUserConnected" (click)="deleteProduct(product.id)">
+      delete
+    </span>
+  </div>
 </div>
 <app-footer></app-footer>

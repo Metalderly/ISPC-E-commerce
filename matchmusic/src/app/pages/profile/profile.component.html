@@ -123,7 +123,13 @@
         </section>
 
         <section>
-          <h5 class="mis-bandas-t">Mis productos</h5>
+          <div class="texts">
+            <h5 class="mis-bandas-t">Mis productos</h5>
+            <div class="add">
+              <p class="more">+</p>
+              <p class="add_product">agregar producto</p>
+            </div>
+          </div>
           <div class="mis-bandas">
             <p *ngIf="products.length==0">No hay productos</p>
             <div class="products" *ngFor="let el of products">

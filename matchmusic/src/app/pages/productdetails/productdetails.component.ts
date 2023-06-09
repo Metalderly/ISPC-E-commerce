@@ -24,15 +24,29 @@ export class ProductdetailsComponent {
     precio:0,
     vendedor: ''
   }
+  userConnected = JSON.parse(localStorage.getItem("username")!!)
+  flagProductUserConnected: boolean = false
 
   ngOnInit(){
     this.productsService.getProductById(this.router.snapshot.params['id']).subscribe(el => {
       this.product = el
-    })
-  }
 
+      this.userService.userById(Number(this.product.vendedor)).subscribe(data => {
+        this.product.vendedor = data.username
+        if(data.username == this.userConnected.username){
+          this.flagProductUserConnected = true
+        }
+      })
+    })
+
+  }
   addCart(product: Product){
     this.cartService.addProduct(product)
     this.cartService.quantityProducts()
+  }
+  deleteProduct(id: number){
+    this.productsService.deleteProduct(id).subscribe(el =>{
+      this.navigate.navigate(['/shop'])
+    })
   }
 }

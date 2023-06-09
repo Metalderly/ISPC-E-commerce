@@ -20,13 +20,11 @@ export class AppComponent {
     this.router.events.pipe(filter((e): e is NavigationEnd => e instanceof NavigationEnd))
     .subscribe((ev: NavigationEnd) => {
       if(this.urls.includes(ev.url)){
-        console.log("now")
         if(localStorage.getItem("username")!=null){
           this.router.navigate(["/feed"])
         }
       }
       if (!this.urls.includes(ev.url)) {
-        console.log(localStorage.getItem("username"))
         if(localStorage.getItem("username")==null){
           this.router.navigate(["/login"])
         }

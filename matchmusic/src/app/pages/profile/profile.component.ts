@@ -28,7 +28,7 @@ export class ProfileComponent{
   username = JSON.parse(localStorage.getItem('username')!!)
   ngOnInit(){
     this.userConnected = this.username
-    this.productsService.getProductsByUsername(this.username[0]).subscribe(el => {
+    this.productsService.getProductsByUsername(this.username.username).subscribe(el => {
       this.products = el
     })
   }

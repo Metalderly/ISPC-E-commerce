@@ -1,4 +1,18 @@
-
+.texts {
+  display: flex;
+  margin: 0;
+}
+.add {
+  display: flex;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.add_product{
+  margin-left: 1px;
+}
+.add:hover{
+  text-decoration: underline;
+}
 .products{
   width: 100%;
 }

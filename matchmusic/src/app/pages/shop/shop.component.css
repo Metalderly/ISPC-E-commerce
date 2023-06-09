@@ -2,11 +2,15 @@
   width: 95%;
   margin: auto;
 }
+
 .title_products{
   width: 100%;
-  margin: 30px auto 0px auto;
+  margin: 30px auto 10px auto;
 }
 
+.filtrar{
+  margin-bottom: 10px;
+}
 input{
   display: flex;
   width: 100%;
@@ -14,11 +18,40 @@ input{
   border: 2px solid grey;
   padding: 15px;
 }
-
+.add {
+  display: flex;
+  position: absolute;
+  padding: 5px;
+}
+.add:hover {
+  background-color: grey;
+  color: white;
+}
+.more{
+  margin: auto;
+}
+.add_product{
+  margin: auto;
+  margin-left: 5px;
+}
+.texts {
+  display: flex;
+  align-items: center;
+  margin-top: 70px;
+}
+.texts .all_text{
+  font-size: 24px;
+}
+.texts .me_text {
+  margin-left: 10px;
+  font-size: 14px;
+  text-decoration: underline;
+  cursor: pointer;
+}
 .products{
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   width: 100%;
-  margin: 20px auto;
+  margin: 0px auto 20px auto;
   grid-gap: 40px;
 }
