@@ -15,11 +15,6 @@ export class ShopComponent {
   listProducts: Product[] = []
 
   ngOnInit(){
-    this.userService.$userConnected.subscribe(data => {
-      if(data.username==''){
-        this.router.navigate(['/login'])
-      }
-    })
     this.productsService.getAllProducts().subscribe(el => {
       this.listProducts = el
     })

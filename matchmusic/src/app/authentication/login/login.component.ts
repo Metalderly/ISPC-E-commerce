@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { FormRegisterService } from 'src/app/services/form-register.service';
 import { UsersService } from 'src/app/services/users.service';
 
 @Component({
@@ -9,16 +9,38 @@ import { UsersService } from 'src/app/services/users.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  constructor(private registerFormService: FormRegisterService, private userService: UsersService, private router: Router){}
+  username: string = ''
+  password: string = ''
+  errorLogin: string = ''
+  loginForm: FormGroup = new FormGroup({});
+
+  constructor(private formBuilder: FormBuilder, private userService: UsersService, private router: Router){}
   ngOnInit(){
-    this.userService.$userConnected.subscribe(data => {
-      if(data.username!=''){
+    this.loginForm = this.formBuilder.group({
+      usernameLogin: ['', [Validators.required]],
+      passwordLogin: ['', [Validators.required]]
+    });
+  }
+
+  loginSubmited(){
+    this.userService.userByUsername(this.loginForm.value["usernameLogin"], this.loginForm.value["passwordLogin"]).subscribe(el => {
+      if(String(el)=="Datos incorrectos"){
+        this.errorLogin = "Datos incorrectos"
+      } else {
+        this.errorLogin = ""
+        localStorage.setItem("username", JSON.stringify(el))
         this.router.navigate(['/feed'])
       }
     })
-    this.registerFormService.flagLogin.next(true);
   }
-  ngOnDestroy(){
-    this.registerFormService.flagLogin.next(false);
+  /* FORM LOGIN */
+  get usernameLogin(){
+    return this.loginForm.get('username') as FormControl;
+  }
+  get passwordLogin(){
+    return this.loginForm.get('password') as FormControl;
+  }
+  goRegister(){
+    this.router.navigate(["/register"])
   }
 }

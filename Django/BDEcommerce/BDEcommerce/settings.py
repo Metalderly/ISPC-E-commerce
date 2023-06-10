@@ -54,7 +54,7 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
 ]
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost',
+    'http://localhost:4200',
 ]
 
 ROOT_URLCONF = 'BDEcommerce.urls'
@@ -82,7 +82,7 @@ WSGI_APPLICATION = 'BDEcommerce.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
+      'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'Music_Ecommerce',
         'USER': 'deo',
@@ -90,7 +90,6 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '3306',
     }
-
 }
 
 

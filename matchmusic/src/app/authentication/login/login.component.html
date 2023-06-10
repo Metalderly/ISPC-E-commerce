@@ -1,0 +1,35 @@
+<main class="text-center">
+  <form class="col-6" [formGroup]="loginForm" (ngSubmit)="loginSubmited()">
+    <h1 class="login__logo">MATCH MUSIC</h1>
+    <p>Sign in</p>
+    <label class="form-label d-block mt-1 login__input">
+      <input
+        class="form-control required"
+        type="text"
+        name="username"
+        placeholder="Username:"
+        id="username"
+        formControlName="usernameLogin"
+      />
+    </label>
+    <label class="form-label d-block login__input">
+      <input
+        class="form-control required"
+        type="password"
+        name="password"
+        placeholder="Password:"
+        id="password"
+        formControlName="passwordLogin"
+      />
+    </label>
+    <p >{{errorLogin}}</p>
+    <button type="submit" class="login__btn">
+      <p class="login__btn-p">log in</p>
+    </button>
+  </form>
+
+  <section class="login__aclaracion">
+    <a href="" class="login__a">Olvidaste tu contraseña?</a>
+    <a (click)="goRegister()" class="login__a">Usuario nuevo?</a>
+  </section>
+</main>

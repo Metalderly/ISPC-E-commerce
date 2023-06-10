@@ -26,11 +26,6 @@ export class ProductdetailsComponent {
   }
 
   ngOnInit(){
-    this.userService.$userConnected.subscribe(data => {
-      if(data.username==''){
-        this.navigate.navigate(['/login'])
-      }
-    })
     this.productsService.getProductById(this.router.snapshot.params['id']).subscribe(el => {
       this.product = el
     })

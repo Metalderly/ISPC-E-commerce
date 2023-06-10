@@ -25,17 +25,11 @@ export class ProfileComponent{
     'genero':''
   }
   products: Product[] = []
+  username = JSON.parse(localStorage.getItem('username')!!)
   ngOnInit(){
-    this.userService.$userConnected.subscribe(data => {
-      if(data.username==''){
-        this.router.navigate(['/login'])
-      } else {
-        this.userConnected=data
-        this.productsService.getProductsByUsername(data.username).subscribe(el => {
-          this.products = el
-        })
-      }
-
+    this.userConnected = this.username
+    this.productsService.getProductsByUsername(this.username[0]).subscribe(el => {
+      this.products = el
     })
   }
   clickSection(id: number){

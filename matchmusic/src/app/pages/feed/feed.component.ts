@@ -9,12 +9,8 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class FeedComponent {
   constructor(private userService: UsersService, private router: Router){}
+  username = JSON.parse(localStorage.getItem('username')!!)
 
   ngOnInit(){
-    this.userService.$userConnected.subscribe(data => {
-      if(data.username==''){
-        this.router.navigate(['/login'])
-      }
-    })
   }
 }

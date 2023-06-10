@@ -9,6 +9,8 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { PagesModule } from './pages/pages.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { AuthenticationModule } from './authentication/authentication.module';
 
 @NgModule({
   declarations: [
@@ -19,8 +21,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     PagesModule,
     CoreModule,
+    AuthenticationModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   exports: [RouterModule],
   providers: [],
