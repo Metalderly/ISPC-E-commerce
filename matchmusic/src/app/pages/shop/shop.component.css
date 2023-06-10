@@ -22,6 +22,7 @@ input{
   display: flex;
   position: absolute;
   padding: 5px;
+  cursor: pointer;
 }
 .add:hover {
   background-color: grey;
@@ -33,6 +34,26 @@ input{
 .add_product{
   margin: auto;
   margin-left: 5px;
+}
+.new_product{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+}
+.new {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  padding: 10px;
+  margin: auto;
+  height: auto;
+  opacity: none;
+  background-color: red;
 }
 .texts {
   display: flex;

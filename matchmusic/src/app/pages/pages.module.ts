@@ -8,6 +8,7 @@ import { EcommerceModule } from '../ecommerce/ecommerce.module';
 import { CoreModule } from '../core/core.module';
 import { ShopComponent } from './shop/shop.component';
 import { ProductdetailsComponent } from './productdetails/productdetails.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { ProductdetailsComponent } from './productdetails/productdetails.compone
   imports: [
     CommonModule,
     EcommerceModule,
-    CoreModule
+    CoreModule,
+    FormsModule
   ],
   exports: [HomeComponent],
 })

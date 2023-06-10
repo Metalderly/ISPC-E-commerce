@@ -23,7 +23,7 @@ export class LoginComponent {
   }
 
   loginSubmited(){
-    this.userService.userByUsername(this.loginForm.value["usernameLogin"], this.loginForm.value["passwordLogin"]).subscribe(el => {
+    this.userService.userByUsernameAndPassword(this.loginForm.value["usernameLogin"], this.loginForm.value["passwordLogin"]).subscribe(el => {
       if(String(el)=="Datos incorrectos"){
         this.errorLogin = "Datos incorrectos"
       } else {

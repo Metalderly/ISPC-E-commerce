@@ -14,7 +14,7 @@ export class ProductComponent implements OnInit {
     caracteristicas:'',
     image:'',
     precio:0,
-    vendedor:'',
+    vendedor:0,
     tipo:Category.Accesorios
   }
 

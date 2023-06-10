@@ -23,6 +23,20 @@
     <p class="more">+</p>
     <p class="add_product">agregar producto</p>
   </div>
+  <div class="new_product">
+    <div class="new">
+      <h3>Nuevo producto</h3>
+      <input type="text" name="name" placeholder="Nombre" [(ngModel)]="new_product.producto" required>
+      <input type="text" name="description" placeholder="Descripcion" [(ngModel)]="new_product.caracteristicas" required>
+      <input type="number" name="price" placeholder="Precio" [(ngModel)]="new_product.precio" required>
+      <input type="text" name="image" placeholder="Imagen (Insierte el link de la imagen)" [(ngModel)]="new_product.image" required>
+      <select name="tipo" id="tipo" [(ngModel)]="new_product.tipo">
+        <option selected value="option" [ngValue]="valueDefault">{{valueDefault}}</option>
+        <option *ngFor="let category of categories" value="{{category.id}}">{{category.name}}</option>
+      </select>
+      <input type="submit" value="Agregar" (click)="addProduct()">
+    </div>
+  </div>
   <div class="all_products" *ngIf="!flagProduct">
     <div class="texts">
       <h3 class="all_text">Todos los productos</h3>
@@ -48,4 +62,3 @@
 
 </div>
 <app-footer></app-footer>
-

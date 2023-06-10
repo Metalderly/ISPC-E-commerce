@@ -22,7 +22,7 @@ export class ProductdetailsComponent {
     tipo:Category.Accesorios,
     caracteristicas:'',
     precio:0,
-    vendedor: ''
+    vendedor: 0
   }
   userConnected = JSON.parse(localStorage.getItem("username")!!)
   flagProductUserConnected: boolean = false
@@ -32,7 +32,7 @@ export class ProductdetailsComponent {
       this.product = el
 
       this.userService.userById(Number(this.product.vendedor)).subscribe(data => {
-        this.product.vendedor = data.username
+        this.product.vendedor = data.id
         if(data.username == this.userConnected.username){
           this.flagProductUserConnected = true
         }

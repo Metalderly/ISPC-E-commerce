@@ -12,8 +12,11 @@ export class UsersService {
   getUsers(){
     return this.http.get<User[]>("http://localhost:8000/v1/users")
   }
-  userByUsername(username: string, password:string) {
+  userByUsernameAndPassword(username: string, password:string) {
     return this.http.get<User>("http://localhost:8000/v1/user/"+username+"/"+password)
+  }
+  userByUsername(username: string) {
+    return this.http.get<User>("http://localhost:8000/v1/user/"+username)
   }
   userById(id: number) {
     return this.http.get<User>("http://localhost:8000/v1/user/"+id)

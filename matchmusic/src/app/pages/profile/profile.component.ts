@@ -14,6 +14,7 @@ export class ProfileComponent{
   constructor(private productsService: ProductsService, private router: Router, private userService: UsersService){}
 
   userConnected: User = {
+    'id':0,
     'username':'',
     'email':'',
     'password':'',
