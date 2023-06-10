@@ -16,14 +16,14 @@ class Migration(migrations.Migration):
             model_name='mitienda',
             name='usuario',
             field=models.ForeignKey(
-                default=4, on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL),
-            preserve_default=True,
+                default=0, on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL),
+            preserve_default=False,
         ),
         migrations.AddField(
             model_name='producto',
             name='tiendaDe',
             field=models.ForeignKey(
-                default=4, on_delete=django.db.models.deletion.CASCADE, to='BaseCentral.mitienda'),
-            preserve_default=True,
+                default=0, on_delete=django.db.models.deletion.CASCADE, to='BaseCentral.mitienda'),
+            preserve_default=False,
         ),
     ]
