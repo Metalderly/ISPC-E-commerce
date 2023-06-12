@@ -1,9 +1,8 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from BaseCentral.models import Users, Producto
-from .serializers import UserSerializer, ProductSerializer
-
+from BaseCentral.models import Users , Producto, Category
+from .serializers import UserSerializer, ProductSerializer, CategorySerializer
 
 class UserView(APIView):
 
@@ -19,17 +18,34 @@ class UserView(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(status=status.HTTP_404_NOT_FOUND)
 
-
-class UserByUsernameView(APIView):
+class UserByUsernameAndPasswordView(APIView):
     def get(self, request, username, password):
+      try:
+        model = Users.objects.get(username=username, password=password)
+        serializer = UserSerializer(model)
+        if(Users.objects.filter(username=username, password=password).exists()):
+          return Response(serializer.data)
+      except:
+          return Response("Datos incorrectos")
+class UserByUsernameView(APIView):
+    def get(self, request, username):
         try:
-            model = Users.objects.get(username=username, password=password)
+            model = Users.objects.get(username=username)
             serializer = UserSerializer(model)
-            if (Users.objects.filter(username=username, password=password).exists()):
+            if(Users.objects.filter(username=username).exists()):
                 return Response(serializer.data)
         except:
             return Response("Datos incorrectos")
-
+            
+class UserByIdView(APIView):
+    def get(self, request, id):
+      try:
+        model = Users.objects.get(id=id)
+        serializer = UserSerializer(model)
+        if(Users.objects.filter(id=id).exists()):
+          return Response(serializer.data)
+      except:
+          return Response("Datos incorrectos")
 
 class ProductView(APIView):
     def get(self, request):
@@ -42,7 +58,7 @@ class ProductView(APIView):
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(status=status.HTTP_404_NOT_FOUND)
+        return Response(serializer.errors, status=status.HTTP_404_NOT_FOUND)
 
 
 class ProductByUsernameView(APIView):
@@ -55,6 +71,25 @@ class ProductByUsernameView(APIView):
 
 class ProductByIdView(APIView):
     def get(self, request, id):
+        try:
+            product = Producto.objects.get(id=id)
+            serializer = ProductSerializer(product)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        except Producto.DoesNotExist:
+            return Response("No se ha encontrado ningún producto")
+    def put(self, request, id):
         product = Producto.objects.get(id=id)
-        serializer = ProductSerializer(product)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        serializer = ProductSerializer(product, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_404_NOT_FOUND)
+    def delete(self, request, id):
+        product = Producto.objects.get(id=id)
+        product.delete()
+        return Response("Producto eliminado correctamente")
+class CategoryView(APIView):
+    def get(self, request):
+        categories = Category.objects.all()
+        serializer = CategorySerializer(categories, many=True)
+        return Response(serializer.data)

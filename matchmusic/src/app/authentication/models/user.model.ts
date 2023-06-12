@@ -1,4 +1,5 @@
 export interface User{
+  id: number,
   username: string
   email: string
   password: string
@@ -10,4 +11,4 @@ export interface User{
   genero: string
 }
 
-export interface UserRequest extends Omit<User, "pais"|"provincia"|"ciudad"|"genero">{}
+export interface UserRequest extends Omit<User, "id"|"pais"|"provincia"|"ciudad"|"genero">{}

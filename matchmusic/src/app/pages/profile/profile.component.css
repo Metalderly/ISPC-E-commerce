@@ -1,4 +1,75 @@
+.place {
+  display: flex;
+  align-items: center;
+}
+.place h5, .place p {
+  margin: auto 0px;
+}
+.place p {
+  margin-left: 10px;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 15px;
+}
 
+.texts {
+  display: flex;
+  margin: 0;
+}
+.add {
+  display: flex;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.add_product{
+  margin-left: 1px;
+}
+.add:hover{
+  text-decoration: underline;
+}
 .products{
   width: 100%;
+}
+
+/* NEW PRODUCT */
+.texts_new_product{
+  display:flex;
+  align-items:center;
+  width:100%;
+  margin-bottom:20px;
+}
+.texts_new_product h3{
+  display:flex;
+  width: 90%;
+  margin:auto;
+}
+.texts_new_product span {
+  cursor: pointer;
+}
+.new_product{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+}
+.new {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  padding: 20px;
+  margin: auto;
+  height: auto;
+  opacity: none;
+  background-color: grey;
+}
+.new input {
+  margin-bottom: 10px;
+  padding: 15px;
+}
+.new select {
+  margin-bottom: 10px;
 }

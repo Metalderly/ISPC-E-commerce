@@ -1,10 +1,40 @@
+<header>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</header>
 <app-header></app-header>
 <div class="product">
   <img [src]="product.image" width="200px">
   <p>{{product.producto}}</p>
   <p>{{product.caracteristicas}}</p>
   <p>{{product.precio | currency}}</p>
-  <p>Este producto es vendido por: {{product.vendedor}}</p>
-  <button (click)="addCart(product)">Agregar al carrito</button>
+  <p>Este producto es vendido por: {{product.vendedor.username}}</p>
+  <div class="actions">
+    <button (click)="addCart(product)">Agregar al carrito</button>
+    <span class="material-symbols-outlined" *ngIf="flagProductUserConnected" (click)="deleteProduct(product.id)">
+      delete
+    </span>
+    <span class="material-symbols-outlined" (click)="clickUpdateProduct()">
+      brush
+    </span>
+  </div>
+  <div class="update_product" *ngIf="flagUpdateProduct">
+    <div class="update">
+      <div class="texts_update_product">
+        <h3>Actualizar producto</h3>
+        <span class="material-symbols-outlined" (click)="clickUpdateProduct()">
+          close
+        </span>
+      </div>
+      <input type="text" name="name" placeholder="Nombre" [(ngModel)]="product.producto" required>
+      <input type="text" name="description" placeholder="Descripcion" [(ngModel)]="product.caracteristicas" required>
+      <input type="number" name="price" placeholder="Precio" [(ngModel)]="product.precio" required>
+      <input type="text" name="image" placeholder="Imagen (Insierte el link de la imagen)" [(ngModel)]="product.image" required>
+      <select name="tipo" id="tipo" [(ngModel)]="product.tipo">
+        <option selected value="option" [ngValue]="valueDefault">{{valueDefault}}</option>
+        <option *ngFor="let category of categories" value="{{category.id}}">{{category.name}}</option>
+      </select>
+      <input type="submit" value="Actualizar" (click)="updateProduct()">
+    </div>
+  </div>
 </div>
 <app-footer></app-footer>

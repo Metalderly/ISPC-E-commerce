@@ -84,9 +84,9 @@ WSGI_APPLICATION = 'BDEcommerce.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'Music_Ecommerce',
-        'USER': 'deo',
-        'PASSWORD': 'Oedsoltero*/40',
+        'NAME': 'matchmusic',
+        'USER': 'root',
+        'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '3306',
     }

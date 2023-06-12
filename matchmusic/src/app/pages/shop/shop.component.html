@@ -1,3 +1,6 @@
+<header>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</header>
 <app-header></app-header>
 
 <div class="component">
@@ -19,12 +22,51 @@
       <option value="precioAscendente">Precio de menor a mayor</option>
     </select>
   </div>
-
-  <div class="products">
+  <div class="add" (click)="clickNewProduct()">
+    <p class="more">+</p>
+    <p class="add_product">agregar producto</p>
+  </div>
+  <div class="new_product" *ngIf="flagAddProduct">
+    <div class="new">
+      <div class="texts_new_product">
+        <h3>Nuevo producto</h3>
+        <span class="material-symbols-outlined" (click)="clickNewProduct()">
+          close
+        </span>
+      </div>
+      <input type="text" name="name" placeholder="Nombre" [(ngModel)]="new_product.producto" required>
+      <input type="text" name="description" placeholder="Descripcion" [(ngModel)]="new_product.caracteristicas" required>
+      <input type="number" name="price" placeholder="Precio" [(ngModel)]="new_product.precio" required>
+      <input type="text" name="image" placeholder="Imagen (Insierte el link de la imagen)" [(ngModel)]="new_product.image" required>
+      <select name="tipo" id="tipo" [(ngModel)]="new_product.tipo">
+        <option selected value="option" [ngValue]="valueDefault">{{valueDefault}}</option>
+        <option *ngFor="let category of categories" value="{{category.id}}">{{category.name}}</option>
+      </select>
+      <input type="submit" value="Agregar" (click)="addProduct()">
+    </div>
+  </div>
+  <div class="all_products" *ngIf="!flagProduct">
+    <div class="texts">
+      <h3 class="all_text">Todos los productos</h3>
+      <h3 class="me_text" (click)="clickProducts()">Ver mis productos</h3>
+    </div>
+    <div class="products">
       <div *ngFor="let product of listProducts">
         <app-product [product]="product" (click)="clickSection(product.id)"></app-product>
       </div>
+    </div>
   </div>
+  <div class="me_products" *ngIf="flagProduct">
+    <div class="texts">
+      <h3 class="all_text">Mis productos</h3>
+      <h3 class="me_text" (click)="clickProducts()">Ver todos los productos</h3>
+    </div>
+    <div class="products">
+      <div *ngFor="let product of listMeProducts">
+        <app-product [product]="product" (click)="clickSection(product.id)"></app-product>
+      </div>
+    </div>
+  </div>
+
 </div>
 <app-footer></app-footer>
-

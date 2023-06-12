@@ -1,0 +1,62 @@
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48;
+  cursor: pointer;
+}
+
+.actions{
+  display: flex;
+  align-items: center;
+}
+
+
+/* NEW PRODUCT */
+
+.update_product{
+  margin: auto;
+  margin-left: 5px;
+}
+.texts_update_product{
+  display:flex;
+  align-items:center;
+  width:100%;
+  margin-bottom:20px;
+}
+.texts_update_product h3{
+  display:flex;
+  width: 90%;
+  margin:auto;
+}
+.texts_update_product span {
+  cursor: pointer;
+}
+.update_product{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+}
+.update {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  padding: 20px;
+  margin: auto;
+  height: auto;
+  opacity: none;
+  background-color: grey;
+}
+.update input {
+  margin-bottom: 10px;
+  padding: 15px;
+}
+.update select {
+  margin-bottom: 10px;
+}
