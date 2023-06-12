@@ -62,16 +62,10 @@ class Producto (models.Model):
     tipo = models.ForeignKey(Category, on_delete=models.CASCADE)
     caracteristicas = models.TextField(max_length=1000)
     precio = models.FloatField(max_length=10)
-<<<<<<< HEAD
-    vendedor = models.ForeignKey(Users,on_delete=models.CASCADE)
-    
-    def __unicode__ (self):
-=======
     vendedor = models.ForeignKey(Users, on_delete=models.CASCADE)
     # tiendaDe = models.ForeignKey(Mitienda, on_delete=models.CASCADE)
 
     def __unicode__(self):
->>>>>>> 3cc0f322ce50a32a4accbdd277efcd538b051933
         return self.producto
 
     def __str__(self):
