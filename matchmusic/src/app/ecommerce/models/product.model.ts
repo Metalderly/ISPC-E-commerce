@@ -8,8 +8,9 @@ export interface Product{
   tipo: Category
   caracteristicas: string
   precio: number
-  vendedor: number
+  vendedor: User
 }
 
 export interface ProductRequest extends Omit<Product, 'id'>{
 }
+

@@ -19,6 +19,17 @@ export class ProductsService {
   addProduct(product: ProductRequest){
     return this.http.post<string>("http://localhost:8000/v1/products", product)
   }
+  updateProduct(product: Product){
+    return this.http.put<Product>(`http://localhost:8000/v1/product/${product.id}`, {
+      id:product.id,
+      producto:product.producto,
+      image:product.image,
+      tipo:product.tipo,
+      caracteristicas:product.caracteristicas,
+      precio:product.precio,
+      vendedor: product.vendedor.id
+    })
+  }
   getProductsByUsername(username: string){
     return this.http.get<Product[]>(`http://localhost:8000/v1/products/${username}`)
   }

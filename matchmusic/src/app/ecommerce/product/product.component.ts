@@ -14,7 +14,18 @@ export class ProductComponent implements OnInit {
     caracteristicas:'',
     image:'',
     precio:0,
-    vendedor:0,
+    vendedor:{
+      'id':0,
+      'username':'',
+      'email':'',
+      'first_name': '',
+      'last_name': '',
+      'password': '',
+      'pais':'',
+      'provincia':'',
+      'ciudad':'',
+      'genero':''
+    },
     tipo:Category.Accesorios
   }
 

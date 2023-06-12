@@ -1,3 +1,6 @@
+<header>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</header>
 <app-header></app-header>
 <div class="nav__feed">
   <div class="nav__feed-profile">
@@ -32,7 +35,11 @@
   <div class="structure_aside">
     <aside class="aside">
       <div class="seccion-izq_perfiles txt-izq_perfiles">
-        <h5>{{userConnected.provincia}}, {{userConnected.pais}}</h5>
+        <div class="place" *ngIf="userConnected.pais == ''">
+          <h5>Lugar:</h5>
+          <p>Agregar</p>
+        </div>
+        <h5 *ngIf="userConnected.pais != ''">{{userConnected.provincia}}, {{userConnected.pais}}</h5>
         <hr />
         <h5>
           Cantante en <em><a href="perfilBanda.html">Rolling Stones</a></em>
@@ -125,9 +132,28 @@
         <section>
           <div class="texts">
             <h5 class="mis-bandas-t">Mis productos</h5>
-            <div class="add">
+            <div class="add" (click)="clickNewProduct()">
               <p class="more">+</p>
               <p class="add_product">agregar producto</p>
+            </div>
+          </div>
+          <div class="new_product" *ngIf="flagAddProduct">
+            <div class="new">
+              <div class="texts_new_product">
+                <h3>Nuevo producto</h3>
+                <span class="material-symbols-outlined" (click)="clickNewProduct()">
+                  close
+                </span>
+              </div>
+              <input type="text" name="name" placeholder="Nombre" [(ngModel)]="new_product.producto" required>
+              <input type="text" name="description" placeholder="Descripcion" [(ngModel)]="new_product.caracteristicas" required>
+              <input type="number" name="price" placeholder="Precio" [(ngModel)]="new_product.precio" required>
+              <input type="text" name="image" placeholder="Imagen (Insierte el link de la imagen)" [(ngModel)]="new_product.image" required>
+              <select name="tipo" id="tipo" [(ngModel)]="new_product.tipo">
+                <option selected="selected">{{valueDefault}}</option>
+                <option *ngFor="let category of categories" value="{{category.id}}">{{category.name}}</option>
+              </select>
+              <input type="submit" value="Agregar" (click)="addProduct()">
             </div>
           </div>
           <div class="mis-bandas">

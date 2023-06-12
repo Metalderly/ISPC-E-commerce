@@ -17,6 +17,7 @@ export class ShopComponent {
   listMeProducts: Product[] = []
   categories: any = []
   flagProduct: boolean = false
+  flagAddProduct: boolean = false
   username = JSON.parse(localStorage.getItem('username')!!)
   new_product: ProductRequest = {
     'producto':'',
@@ -24,7 +25,18 @@ export class ShopComponent {
     'caracteristicas':'',
     'tipo': Category.Accesorios,
     'precio': 0,
-    'vendedor': 0
+    'vendedor': {
+      'id':0,
+      'username':'',
+      'email':'',
+      'first_name': '',
+      'last_name': '',
+      'password': '',
+      'pais':'',
+      'provincia':'',
+      'ciudad':'',
+      'genero':''
+    }
   }
   valueDefault = 'Seleccione una categoria'
 
@@ -39,7 +51,7 @@ export class ShopComponent {
       this.categories = data
     })
     this.userService.userByUsername(this.username.username).subscribe(data => {
-      this.new_product.vendedor = data.id
+      this.new_product.vendedor = data
     })
   }
   clickSection(id: number){
@@ -49,6 +61,14 @@ export class ShopComponent {
     this.flagProduct = !this.flagProduct
   }
   addProduct(){
-    this.productsService.addProduct(this.new_product).subscribe(el=>{})
+    this.productsService.addProduct(this.new_product).subscribe(el=>{
+      this.productsService.getAllProducts().subscribe(el => {
+        this.listProducts = el
+      })
+    })
+    this.flagAddProduct = false
+  }
+  clickNewProduct(){
+    this.flagAddProduct = !this.flagAddProduct
   }
 }

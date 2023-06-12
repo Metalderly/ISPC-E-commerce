@@ -1,3 +1,10 @@
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
 .component{
   width: 95%;
   margin: auto;
@@ -31,9 +38,26 @@ input{
 .more{
   margin: auto;
 }
+
+/* NEW PRODUCT */
+
 .add_product{
   margin: auto;
   margin-left: 5px;
+}
+.texts_new_product{
+  display:flex;
+  align-items:center;
+  width:100%;
+  margin-bottom:20px;
+}
+.texts_new_product h3{
+  display:flex;
+  width: 90%;
+  margin:auto;
+}
+.texts_new_product span {
+  cursor: pointer;
 }
 .new_product{
   display: flex;
@@ -49,11 +73,17 @@ input{
   display: flex;
   flex-direction: column;
   width: 30%;
-  padding: 10px;
+  padding: 20px;
   margin: auto;
   height: auto;
   opacity: none;
-  background-color: red;
+  background-color: grey;
+}
+.new input {
+  margin-bottom: 10px;
+}
+.new select {
+  margin-bottom: 10px;
 }
 .texts {
   display: flex;
