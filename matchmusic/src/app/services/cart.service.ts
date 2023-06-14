@@ -1,12 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../ecommerce/models/product.model';
 import { BehaviorSubject } from "rxjs"
-
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-
   constructor() { }
   listProducts: Map<string, number[]> = new Map()
   listObservable = new BehaviorSubject<Map<string, number[]>>(new Map())
@@ -16,7 +14,12 @@ export class CartService {
   quantityObservable = new BehaviorSubject<number>(0)
   $quantyObservable = this.quantityObservable.asObservable()
 
+  amount: number = 0
+  amountObservable = new BehaviorSubject<number>(0)
+  $amountObservable = this.amountObservable.asObservable()
+
   addProduct(product: Product){
+
     if(this.listProducts.has(product.producto)){
       this.listProducts.set(product.producto, [
         Number(this.listProducts.get(product.producto)!![0])+product.precio,
@@ -26,6 +29,8 @@ export class CartService {
       this.listProducts.set(product.producto,[product.precio, 1])
     }
     this.listObservable.next(this.listProducts)
+    this.amount+=product.precio
+    this.amountObservable.next(this.amount)
   }
 
   quantityProducts(){

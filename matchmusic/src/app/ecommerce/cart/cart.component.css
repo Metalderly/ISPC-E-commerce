@@ -20,10 +20,16 @@
   top: 59px;
   background-color: grey;
   width: auto;
+  padding: 10px;
+
 }
 
 .product {
   display: flex;
   height: auto;
-  padding: 10px;
+}
+
+.total {
+  background-color: white;
+  padding: 5px;
 }
