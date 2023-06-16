@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@angular/common": "^16.1.1",
+    "@paypal/checkout-server-sdk": "^1.0.3",
+    "ngx-paypal": "^11.0.0"
+  }
+}
