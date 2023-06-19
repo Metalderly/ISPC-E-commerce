@@ -1,8 +1,8 @@
 .product{
   margin: auto;
-  width: 100%;
+  width: 20vw;
   cursor: pointer;
-  background-color: rgb(219, 216, 216);
+  background-color: rgb(232, 228, 228);
   border-radius: 5px;
   padding:20px;
   font-family: 'Poppins';
@@ -10,8 +10,11 @@
 .product img {
   width: 100%;
   height:240px;
-  border-bottom: 1px solid rgb(131, 127, 127);
-  padding-bottom: 10px;
+  /*border-bottom: 1px solid rgb(131, 127, 127);*/
+  margin-bottom: 10px;
+}
+.product-info{
+  text-align: center;
 }
 .product .seller {
   margin: 5px 0 10px 0;
@@ -25,4 +28,5 @@
 .product .price {
   font-size: 19px;
 }
+
 

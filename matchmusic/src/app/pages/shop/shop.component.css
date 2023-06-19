@@ -1,12 +1,23 @@
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
 .component{
   width: 95%;
   margin: auto;
 }
+
 .title_products{
   width: 100%;
-  margin: 30px auto 0px auto;
+  margin: 30px auto 10px auto;
 }
 
+.filtrar{
+  margin-bottom: 10px;
+}
 input{
   display: flex;
   width: 100%;
@@ -14,11 +25,84 @@ input{
   border: 2px solid grey;
   padding: 15px;
 }
+.add {
+  display: flex;
+  position: absolute;
+  padding: 5px;
+  cursor: pointer;
+}
+.add:hover {
+  background-color: grey;
+  color: white;
+}
+.more{
+  margin: auto;
+}
 
+/* NEW PRODUCT */
+
+.add_product{
+  margin: auto;
+  margin-left: 5px;
+}
+.texts_new_product{
+  display:flex;
+  align-items:center;
+  width:100%;
+  margin-bottom:20px;
+}
+.texts_new_product h3{
+  display:flex;
+  width: 90%;
+  margin:auto;
+}
+.texts_new_product span {
+  cursor: pointer;
+}
+.new_product{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+}
+.new {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  padding: 20px;
+  margin: auto;
+  height: auto;
+  opacity: none;
+  background-color: grey;
+}
+.new input {
+  margin-bottom: 10px;
+}
+.new select {
+  margin-bottom: 10px;
+}
+.texts {
+  display: flex;
+  align-items: center;
+  margin-top: 70px;
+}
+.texts .all_text{
+  font-size: 24px;
+}
+.texts .me_text {
+  margin-left: 10px;
+  font-size: 14px;
+  text-decoration: underline;
+  cursor: pointer;
+}
 .products{
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   width: 100%;
-  margin: 20px auto;
+  margin: 0px auto 20px auto;
   grid-gap: 40px;
 }

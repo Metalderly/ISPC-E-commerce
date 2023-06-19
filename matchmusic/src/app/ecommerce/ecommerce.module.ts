@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ProductsComponent } from './products/products.component';
 import { CartComponent } from './cart/cart.component';
 import { ProductComponent } from './product/product.component';
+import { NgxPayPalModule } from 'ngx-paypal';
 
 @NgModule({
   declarations: [
@@ -12,6 +13,7 @@ import { ProductComponent } from './product/product.component';
   ],
   imports: [
     CommonModule,
+    NgxPayPalModule,
   ],
   exports: [ProductComponent, ProductsComponent, CartComponent],
 })

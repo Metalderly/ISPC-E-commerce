@@ -1,8 +1,8 @@
-<div class="product">
-  <img [src]="product.image">
+<div class="product border border-success border border-3">
+  <img class="border border-success" [src]="product.image">
   <div class="product-info">
-    <p class="seller">{{product.seller}}</p>
-    <h2 class="name">{{product.name}}</h2>
-    <h1 class="price">{{product.price | currency}}</h1>
+    <!--<p class="seller">{{product.vendedor}}</p>-->
+    <h2 class="name">{{product.producto}}</h2>
+    <h1 class="price">{{product.precio | currency}}</h1>
   </div>
 </div>

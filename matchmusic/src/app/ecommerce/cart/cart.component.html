@@ -4,8 +4,12 @@
 </div>
 
 <div class="products" *ngIf="visibilityCart">
-  <p *ngIf="listProducts.size==0">No hay productos en la lista</p>
-  <div class="product" *ngFor="let product of listProducts.entries()">
-    <p>{{product[0]}} x{{product[1][1]}} - {{product[1][0] | currency}}</p>
-  </div>
+  <p class="text-danger fw-bold text-uppercase" *ngIf="listProducts.size==0; else elseBlock">No hay productos en la lista</p>
+  <ng-template #elseBlock>
+    <div class="product" *ngFor="let product of listProducts.entries()">
+      <p>{{product[0]}} x{{product[1][1]}} - {{product[1][0] | currency}}</p>
+    </div>
+    <p class="total">Total: {{amountTotally}}</p>
+    <ngx-paypal class="paypal" [config]="payPalConfig"></ngx-paypal>
+  </ng-template>
 </div>
